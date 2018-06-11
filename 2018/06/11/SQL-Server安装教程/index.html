@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教程针对64位windows系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载(删">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL server 2008及管理工具安装教程">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/SQL-Server安装教程/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教程针对64位windows系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载(删">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UP*48BD*nIlC5ypyBT0FcrdJVI6EeSxc5GN6a3UDw3M!/r/dFYAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UMRzQAQXsydHemaShJk9MbWjaXoLsItuVuZAInKwy98!/r/dAgBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/S5cJPUTYGbpD6iiaETpUHMDAFed2bRN0FJ2G65D2NcM!/r/dEABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/65LyQkqtGlULh3JfYWW9OmQkkZ*h9wGoLhsUx3uNjZ8!/r/dFYAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fm*894cf2QKeeC8Zu62gZ44mUrAH.TmhUL4ZhNerL9I!/r/dFUAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/zZkl90i5RC96IWGIyfaPYVUVKIWc1ruwIgce*QxuEB8!/r/dIMAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fzEa8gJuZyRXpMkNAqHDEg*ggQImlOD6LyEKRzdbeV4!/r/dDIBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/IghOIVxVpa2k7i4vLdP3qpDNl8Ahb4JLuKh1zcB8z9Y!/r/dGEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/*h7fsDBgwAbfllqZgPLFX2f4jQtCxARt5h1FwzqqG2Q!/r/dEMBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/knG2W3nXunUd3pYx5x*MxPZgLu0yBDubVIIrE6q3PD4!/r/dEUBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/JgrN0YD0BMXxz7LFVEDuYzfRm2TVEVto86tnhKph0Qg!/r/dFYBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aG*fvrnE5Rby0JLufI.DM0I1mqjIRfvQ82lX9wF8*Pg!/r/dEUBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/3lD4gLqplGf*wzrzpMJsL4G34DA44AogNlQbf4Gq6D0!/r/dDEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/Q4yYqu6req5xdKas*PB.TeFiF2YZjFdSZcc9VUYSJFw!/r/dIMAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/TRSlV1Hf2jQU*U3EoGSe5rV*QHbHtOwXQKoypXhmkrE!/r/dFcAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/BFMee3YUxvjF9oSylHHqojxoFEEHCMLRSafaevegcIo!/r/dDEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/y7newuaIUoEmYYBbDf.kwL5oVJoPYyATwU2uZWAtCj8!/r/dDEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/2T6poaqqB6qBz4fwGvwg*fJlCZgDja2JQtdXnoy3x7s!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/btDLYYNzMCLpdozHRBGguP28NbPZlCet58ynNS9J9IU!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/5Zmcq*rdAbGf43Q7x6E3*dJQ*fwQ7ipcT6.qkfZE140!/r/dFYBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/miUG*yKRmDNbfbGtY8JH*oI6wuV2SjOlCvJ9g079Wcg!/r/dDMBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/3UT8wH14rU9HSI9Jg.*1N4X*SoX*p27nciBtVJCRloY!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/rWT70AGqEnVnwxR6oJG4cUukSEgXynC1T2C96FEaJhA!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/go0J3DeBMDdOdD9qkJ0Lp98CrPaEgPv3stJtglF3Pkc!/r/dDIBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/oLhr3cb1iMTRamuJB.mvGZa5el4xidGeFb7M9qOj*Pw!/r/dDEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/I0o71JBFCdIZbVhHqq*IyprKuzc*5L5Sur6rAqH5rUI!/r/dIMAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/QbGW3ZX6Jzvh9IhQwt8VtI7lg.gbIfjvTjNgaBCq4Pw!/r/dDIBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aXwjXbHZwG52LphFSgBH3bQ5Lh1o*UTTM8YXAMX5UPg!/r/dGcBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/bs9Sb7PMABoiaBrS8MdE435TnVV*mYZ.11*TKrVjUFA!/r/dDIBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/EEWx*NQSFafb1KDmkZfaWhx3XfhVUGGoQXTwZmEZXVE!/r/dC0BAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/oYcvxpRhwbMSynxxI*cD*XXDbBVzoobljdBsjcKVuc4!/r/dDMBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/X3sErxpxW38S55iSbpnjVte6PiIKVmSsonAUZJc.Mus!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/SpZkDlzkIBwI99j9vRVaSiHM1Au*n3ly9TrQvdUtrBY!/r/dC0BAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fsB9dnLy567YB5UDh25X4xWe4l5gRjiAPRlXI7Yae.w!/r/dDABAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/rGXlWB*d0XuAV*6yZjZ66bmgBd6EONPM6Zm4y0qt8F8!/r/dPMAAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aUnU.*pKeGr0CR9bQtHVD1HwKRcrfqjN14bjvavMn*M!/r/dDEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/OSD25UJQLVsX7OnyDdwiyx.FfVLUqAWOkFlFTxNzlko!/r/dC0BAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/imEj*4FlLE9pNNsjyeljN6cRbwa4xxWjkREFNgQOem8!/r/dDEBAAAAAAAA">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/YEk6dOXgmqKDN8.1hJWJgypmfuo982OiqMWQAD2CLPs!/r/dDMBAAAAAAAA">
+<meta property="og:updated_time" content="2018-06-11T17:34:53.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL server 2008及管理工具安装教程">
+<meta name="twitter:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教程针对64位windows系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载(删">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UP*48BD*nIlC5ypyBT0FcrdJVI6EeSxc5GN6a3UDw3M!/r/dFYAAAAAAAAA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/11/SQL-Server安装教程/"/>
+
+
+
+
+
+  <title>SQL server 2008及管理工具安装教程 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/SQL-Server安装教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王少刚">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL server 2008及管理工具安装教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T23:15:00+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><font size="3" color="#000000">学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。</font></p>
+<p><font size="3" color="#000000">当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。</font></p>
+<p><font size="3" color="#000000">本教程针对64位windows系统。</font></p>
+<p><font size="3" color="#000000">如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载(删除本地文件和删除注册表)，因为卸载不彻底下次安装出错的可能性很大。至于如何完美卸载，这篇博客写的很棒。<br><a href="https://blog.csdn.net/u013058618/article/details/50265961" target="_blank" rel="noopener">https://blog.csdn.net/u013058618/article/details/50265961</a></font></p>
+<p><font size="5" color="#000000"><strong>1.下载数据库引擎服务和数据库管理工具</strong></font></p>
+<p><font size="3" color="#000000"><strong>1.1</strong> 到官网下载SQLEXPR_x64_CHS.exe，地址：<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=1695" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/download/details.aspx?id=1695</a></font></p>
+<p><font size="3" color="#000000">也可以从百度网盘下载，地址：<a href="https://pan.baidu.com/s/1AkEGoWMS-4lK57qmDbmRcg" target="_blank" rel="noopener">https://pan.baidu.com/s/1AkEGoWMS-4lK57qmDbmRcg</a></font></p>
+<p><font size="3" color="#000000"><strong>1.2</strong> 到官网下载SQLManagementStudio_x64_CHS.exe，地址：<a href="https://www.microsoft.com/en-us/download/details.aspx?id=7593" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/details.aspx?id=7593</a></font></p>
+<p><font size="3" color="#000000">也可以从百度网盘下载，地址：<a href="https://pan.baidu.com/s/1GPEVpKe9SKs1UEWv_i_OGA" target="_blank" rel="noopener">https://pan.baidu.com/s/1GPEVpKe9SKs1UEWv_i_OGA</a></font></p>
+<p><font size="5" color="#000000"><strong>2.安装SQLEXPR_x64_CHS.exe</strong></font></p>
+<p><font size="3" color="#000000"><strong>2.1</strong> 打开下载好的SQLEXPR_x64_CHS.exe，界面如下图所示。</font></p>
+<p><font size="3" color="#000000">如果没有出现要求安装.NET Framework 3.5的弹窗，可以进行下一步。</font></p>
+<p><font size="3" color="#000000">如果出现要求安装.NET Framework 3.5的弹窗，按提示自动安装即可，如果不能自动安装，可能是因为用杀毒软件禁用了Windows Update服务，解决方式这里就不写了，可以参考这篇百度经验。</font></p>
+<p><font size="3" color="#000000"><a href="https://jingyan.baidu.com/article/6c67b1d6a8f2922787bb1ea5.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/6c67b1d6a8f2922787bb1ea5.html</a><br><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UP*48BD*nIlC5ypyBT0FcrdJVI6EeSxc5GN6a3UDw3M!/r/dFYAAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.2</strong> 点击左边的安装，然后点击“全新SQL Server独立安装或向现有安装添加功能”。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UMRzQAQXsydHemaShJk9MbWjaXoLsItuVuZAInKwy98!/r/dAgBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.3</strong> 点击确定<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/S5cJPUTYGbpD6iiaETpUHMDAFed2bRN0FJ2G65D2NcM!/r/dEABAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.4</strong> 没什么好说的，下一步<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/65LyQkqtGlULh3JfYWW9OmQkkZ*h9wGoLhsUx3uNjZ8!/r/dFYAAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.5</strong> 点击安装<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fm*894cf2QKeeC8Zu62gZ44mUrAH.TmhUL4ZhNerL9I!/r/dFUAAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.6</strong> 点击下一步</font></p>
+<p><font size="3" color="#000000">如果这里出现要求重启计算机的问题，那么就算你重启了计算机重新安装，依然达不到需要的效果，解决方式可以参考这篇博客。<br><a href="https://blog.csdn.net/z10843087/article/details/24687367" target="_blank" rel="noopener">https://blog.csdn.net/z10843087/article/details/24687367</a><br><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/zZkl90i5RC96IWGIyfaPYVUVKIWc1ruwIgce*QxuEB8!/r/dIMAAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.7</strong> <strong>全选</strong>，然后点击下一步。如果你是第一次安装，可以修改共享功能目录，但是我建议使用默认目录。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fzEa8gJuZyRXpMkNAqHDEg*ggQImlOD6LyEKRzdbeV4!/r/dDIBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.8</strong> 点击命名实例，可以参考图中填写的SQLExpress，然后点击下一步，这样可以确保后面的操作与我一致。</font></p>
+<p><font size="3" color="#000000">实例名称也可以填写其他内容，但必须记住，因为后面连接到数据库的时候要用到。</font></p>
+<p><font size="3" color="#000000">如果你以前安装过同名的实例，就只能填写其他实例名了。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/IghOIVxVpa2k7i4vLdP3qpDNl8Ahb4JLuKh1zcB8z9Y!/r/dGEBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.9</strong> 下一步<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/*h7fsDBgwAbfllqZgPLFX2f4jQtCxARt5h1FwzqqG2Q!/r/dEMBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.10</strong> 这里需要展开上面账户名的下拉菜单，选择第一项NT AUTHORITY\NETWORK SERVICE，一定不要选择第二项。其他内容不用修改，点击下一步。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/knG2W3nXunUd3pYx5x*MxPZgLu0yBDubVIIrE6q3PD4!/r/dEUBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.11</strong> 点击添加当前账户，可能会有短时间的卡顿，然后点击下一步。至于上面的身份验证模式，可以修改为混合模式，也可以在安装完成后修改，我这里选择了默认的Windows身份验证模式。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/JgrN0YD0BMXxz7LFVEDuYzfRm2TVEVto86tnhKph0Qg!/r/dFYBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.12</strong> 后面的操作没什么好说的了，直接点击下一步。佩服我自己有耐心截这么多图。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aG*fvrnE5Rby0JLufI.DM0I1mqjIRfvQ82lX9wF8*Pg!/r/dEUBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/3lD4gLqplGf*wzrzpMJsL4G34DA44AogNlQbf4Gq6D0!/r/dDEBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/Q4yYqu6req5xdKas*PB.TeFiF2YZjFdSZcc9VUYSJFw!/r/dIMAAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>2.13</strong> 这一步需要的时间较长，请耐心等待。我曾经安装到这一步的时候报错，原因是之前卸载完没有删除注册表。关于安装失败后如何卸载，请上划到文章开头。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/TRSlV1Hf2jQU*U3EoGSe5rV*QHbHtOwXQKoypXhmkrE!/r/dFcAAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/BFMee3YUxvjF9oSylHHqojxoFEEHCMLRSafaevegcIo!/r/dDEBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/y7newuaIUoEmYYBbDf.kwL5oVJoPYyATwU2uZWAtCj8!/r/dDEBAAAAAAAA" alt=""></font></p>
+<p><font size="5" color="#000000"><strong>3.安装SQLManagementStudio_x64_CHS.exe</strong></font></p>
+<p><font size="3" color="#000000"><strong>3.1</strong> 这里与前面类似，打开下载好的SQLManagementStudio_x64_CHS.exe，点击左边的安装，然后点击“全新SQL Server独立安装或向现有安装添加功能”。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/2T6poaqqB6qBz4fwGvwg*fJlCZgDja2JQtdXnoy3x7s!/r/dDABAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>3.2</strong> 后面的操作没有难度，只要前面安装SQLEXPR_x64_CHS.exe没有出现问题，后面也不会有问题。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/btDLYYNzMCLpdozHRBGguP28NbPZlCet58ynNS9J9IU!/r/dDABAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/5Zmcq*rdAbGf43Q7x6E3*dJQ*fwQ7ipcT6.qkfZE140!/r/dFYBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/miUG*yKRmDNbfbGtY8JH*oI6wuV2SjOlCvJ9g079Wcg!/r/dDMBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/3UT8wH14rU9HSI9Jg.*1N4X*SoX*p27nciBtVJCRloY!/r/dDABAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/rWT70AGqEnVnwxR6oJG4cUukSEgXynC1T2C96FEaJhA!/r/dDABAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/go0J3DeBMDdOdD9qkJ0Lp98CrPaEgPv3stJtglF3Pkc!/r/dDIBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>3.3</strong> 这里记得点击全选，然后下一步。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/oLhr3cb1iMTRamuJB.mvGZa5el4xidGeFb7M9qOj*Pw!/r/dDEBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/I0o71JBFCdIZbVhHqq*IyprKuzc*5L5Sur6rAqH5rUI!/r/dIMAAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/QbGW3ZX6Jzvh9IhQwt8VtI7lg.gbIfjvTjNgaBCq4Pw!/r/dDIBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aXwjXbHZwG52LphFSgBH3bQ5Lh1o*UTTM8YXAMX5UPg!/r/dGcBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/bs9Sb7PMABoiaBrS8MdE435TnVV*mYZ.11*TKrVjUFA!/r/dDIBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/EEWx*NQSFafb1KDmkZfaWhx3XfhVUGGoQXTwZmEZXVE!/r/dC0BAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/oYcvxpRhwbMSynxxI*cD*XXDbBVzoobljdBsjcKVuc4!/r/dDMBAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/X3sErxpxW38S55iSbpnjVte6PiIKVmSsonAUZJc.Mus!/r/dDABAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000">完成后，点击关闭，至此，已经完成了数据库引擎服务和数据库管理工具的安装。        </font></p>
+<p><font size="5" color="#000000"><strong>4.数据库的配置与连接</strong></font></p>
+<p><font size="3" color="#000000"><strong>4.1</strong> 在开始菜单中找到SQL Server配置管理器，打开。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/SpZkDlzkIBwI99j9vRVaSiHM1Au*n3ly9TrQvdUtrBY!/r/dC0BAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>4.2</strong> 展开SQL Server网络配置，点击SQLEXPRESS的协议，然后右键单击TCP/IP协议，选择启动，然后会弹出要求重启服务的警告。不要怕，接下来就去重启服务。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fsB9dnLy567YB5UDh25X4xWe4l5gRjiAPRlXI7Yae.w!/r/dDABAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>4.3</strong> 直接在Win10搜索框输入“服务”，就可以打开服务了(如果不是win10，可以按Win+R，运行services.msc，回车)。</font></p>
+<p><font size="3" color="#000000">进入服务窗口后，找到SQL Server(SQLEXPRESS)，右键单击选择重新启动，SQLEXPRESS是前面安装的实例名称，如果跟我不一样，就要找到你安装的实例对应的服务，然后重新启动。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/rGXlWB*d0XuAV*6yZjZ66bmgBd6EONPM6Zm4y0qt8F8!/r/dPMAAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aUnU.*pKeGr0CR9bQtHVD1HwKRcrfqjN14bjvavMn*M!/r/dDEBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>4.4</strong> 完成服务的重启后，在开始菜单中找到SQL Server Management Studio，这个是数据库管理工具，可以把快捷方式复制到桌面，然后打开。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/OSD25UJQLVsX7OnyDdwiyx.FfVLUqAWOkFlFTxNzlko!/r/dC0BAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>4.5</strong> 连接到服务器，身份验证方式选择Windows身份验证，服务器名称填“(local)\实例名”，如果前面的安装的实例跟我一样，就是(local)\SQLEXPRESS，填写完之后就可以连接到数据库服务器了。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/imEj*4FlLE9pNNsjyeljN6cRbwa4xxWjkREFNgQOem8!/r/dDEBAAAAAAAA" alt=""></font></p>
+<p><font size="4" color="#ff0000">如果还有任何问题，欢迎与我交流，交流方式是这样的，保存下面的二维码，进入支付宝扫一扫，打开相册选择这张图，输入100，然后输入支付密码。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/YEk6dOXgmqKDN8.1hJWJgypmfuo982OiqMWQAD2CLPs!/r/dDMBAAAAAAAA" alt=""></font></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/11/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王少刚</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王少刚</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
