@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程，然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。 1.环境准备 1.1 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。 1.2 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用的">
+<meta name="description" content="本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程。 然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。 1.环境准备 1.1 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。 1.2 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用">
 <meta name="keywords" content="数据库,JAVA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC连接数据库示例">
 <meta property="og:url" content="http://yoursite.com/2018/06/13/JDBC连接数据库示例/index.html">
 <meta property="og:site_name" content="WSG&#39;s Blog">
-<meta property="og:description" content="本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程，然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。 1.环境准备 1.1 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。 1.2 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用的">
+<meta property="og:description" content="本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程。 然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。 1.环境准备 1.1 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。 1.2 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/Jh.FyyNocQQnLTldn7EdP3q9xMX5eucxhxGxF67KOMI!/r/dDEBAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/x6lRcSBAP0x83*zLDbeX8Bj.BC.lI*0*QN5*GimK4u4!/r/dEYBAAAAAAAA">
@@ -108,10 +108,10 @@
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/DjXkASaoj9TJI7tnPtWjwa5McI.kKr9KvF6zGbMGuO4!/r/dDMBAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/C*GtBkBuWH*iUJi8MNC4m4Kt6L7CaS.KDCtyzLtW0C8!/r/dFcAAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/EuEOVcGqusm.EAh2fv7BfoPdyVhCke.1p6NLHiabhCk!/r/dDIBAAAAAAAA">
-<meta property="og:updated_time" content="2018-06-14T03:21:32.679Z">
+<meta property="og:updated_time" content="2018-06-14T03:27:05.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC连接数据库示例">
-<meta name="twitter:description" content="本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程，然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。 1.环境准备 1.1 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。 1.2 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用的">
+<meta name="twitter:description" content="本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程。 然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。 1.环境准备 1.1 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。 1.2 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用">
 <meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/Jh.FyyNocQQnLTldn7EdP3q9xMX5eucxhxGxF67KOMI!/r/dDEBAAAAAAAA">
 
 
@@ -318,7 +318,8 @@
       
 
       
-        <p><font size="3" color="#000000">本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程，然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。</font></p>
+        <p><font size="3" color="#000000">本文结合我的Java课程设计经验，介绍IDEA用JDBC连接到SQL Server的过程。</font></p>
+<p><font size="3" color="#000000">然后通过一个实例，验证连接是否成功，所有源代码在本教程中已给出。</font></p>
 <p><font size="5" color="#000000"><strong>1.环境准备</strong></font></p>
 <p><font size="3" color="#000000"><strong>1.1</strong> 配置Java环境这里就不详细写了，我用的Java版本是64位1.8.0_171，Java版本可以与我不同，能正常使用就行了。</font></p>
 <p><font size="3" color="#000000"><strong>1.2</strong> 安装Java编译器，我使用的编译器是IntelliJ IDEA 15.0.6，如果使用的编程器是eclipse或Myeclipse，导入JDBC的步骤可能与我不同，其他步骤差别不大。</font></p>
