@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于对64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸">
+<meta name="description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL server 2008及管理工具安装教程">
 <meta property="og:url" content="http://yoursite.com/2018/06/11/SQL-Server安装教程/index.html">
 <meta property="og:site_name" content="WSG&#39;s Blog">
-<meta property="og:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于对64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸">
+<meta property="og:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UP*48BD*nIlC5ypyBT0FcrdJVI6EeSxc5GN6a3UDw3M!/r/dFYAAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UMRzQAQXsydHemaShJk9MbWjaXoLsItuVuZAInKwy98!/r/dAgBAAAAAAAA">
@@ -126,10 +126,10 @@
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/OSD25UJQLVsX7OnyDdwiyx.FfVLUqAWOkFlFTxNzlko!/r/dC0BAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/imEj*4FlLE9pNNsjyeljN6cRbwa4xxWjkREFNgQOem8!/r/dDEBAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/YEk6dOXgmqKDN8.1hJWJgypmfuo982OiqMWQAD2CLPs!/r/dDMBAAAAAAAA">
-<meta property="og:updated_time" content="2018-06-13T12:26:11.010Z">
+<meta property="og:updated_time" content="2018-06-22T17:07:20.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL server 2008及管理工具安装教程">
-<meta name="twitter:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于对64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸">
+<meta name="twitter:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载">
 <meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UP*48BD*nIlC5ypyBT0FcrdJVI6EeSxc5GN6a3UDw3M!/r/dFYAAAAAAAAA">
 
 
@@ -338,7 +338,7 @@
       
         <p><font size="3" color="#000000">学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。</font></p>
 <p><font size="3" color="#000000">当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。</font></p>
-<p><font size="3" color="#000000">本教适用于对64位Windows操作系统。</font></p>
+<p><font size="3" color="#000000">本教适用于64位Windows操作系统。</font></p>
 <p><font size="3" color="#000000">如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载(删除本地文件和删除注册表)，因为卸载不彻底下次安装出错的可能性很大。至于如何完美卸载，这篇博客写的很棒。<br><a href="https://blog.csdn.net/u013058618/article/details/50265961" target="_blank" rel="noopener">https://blog.csdn.net/u013058618/article/details/50265961</a></font></p>
 <p><font size="5" color="#000000"><strong>1.下载数据库引擎服务和数据库管理工具</strong></font></p>
 <p><font size="3" color="#000000"><strong>1.1</strong> 到官网下载SQLEXPR_x64_CHS.exe，地址：<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=1695" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/download/details.aspx?id=1695</a></font></p>
@@ -348,7 +348,7 @@
 <p><font size="5" color="#000000"><strong>2.安装SQLEXPR_x64_CHS.exe</strong></font></p>
 <p><font size="3" color="#000000"><strong>2.1</strong> 打开下载好的SQLEXPR_x64_CHS.exe，界面如下图所示。</font></p>
 <p><font size="3" color="#000000">如果没有出现要求安装.NET Framework 3.5的弹窗，可以进行下一步。</font></p>
-<p><font size="3" color="#000000">如果出现要求安装.NET Framework 3.5的弹窗，按提示自动安装即可，如果不能自动安装，可能是因为用杀毒软件禁用了Windows Update服务，解决方式这里就不写了，可以参考这篇百度经验。</font></p>
+<p><font size="3" color="#000000">如果出现要求安装.NET Framework 3.5的弹窗，按提示自动安装即可，如果不能自动安装，可能是因为用杀毒软件禁用了Windows Update服务，解决方式这里就不展开了，可以参考这篇百度经验。</font></p>
 <p><font size="3" color="#000000"><a href="https://jingyan.baidu.com/article/6c67b1d6a8f2922787bb1ea5.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/6c67b1d6a8f2922787bb1ea5.html</a><br><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UP*48BD*nIlC5ypyBT0FcrdJVI6EeSxc5GN6a3UDw3M!/r/dFYAAAAAAAAA" alt=""></font></p>
 <p><font size="3" color="#000000"><strong>2.2</strong> 点击左边的安装，然后点击“全新SQL Server独立安装或向现有安装添加功能”。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/UMRzQAQXsydHemaShJk9MbWjaXoLsItuVuZAInKwy98!/r/dAgBAAAAAAAA" alt=""></font></p>
 <p><font size="3" color="#000000"><strong>2.3</strong> 点击确定<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/S5cJPUTYGbpD6iiaETpUHMDAFed2bRN0FJ2G65D2NcM!/r/dEABAAAAAAAA" alt=""></font></p>
