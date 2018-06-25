@@ -126,7 +126,7 @@
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/OSD25UJQLVsX7OnyDdwiyx.FfVLUqAWOkFlFTxNzlko!/r/dC0BAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/imEj*4FlLE9pNNsjyeljN6cRbwa4xxWjkREFNgQOem8!/r/dDEBAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/YEk6dOXgmqKDN8.1hJWJgypmfuo982OiqMWQAD2CLPs!/r/dDMBAAAAAAAA">
-<meta property="og:updated_time" content="2018-06-22T17:07:20.798Z">
+<meta property="og:updated_time" content="2018-06-25T10:10:50.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL server 2008及管理工具安装教程">
 <meta name="twitter:description" content="学了一个学期数据库，到要做课程设计时，却发现班上很多同学还不会安装SQL server 2008，为此，我写了这篇SQL server 2008安装教程。 当然，我在安装这个软件时，也遇到过许多困难，而且在网上很难找到完整的教程。在此分享一下安装过程和常见的问题，希望能帮到大家。 本教适用于64位Windows操作系统。 如果你之前安装过SQL server 2008且安装失败，请确保已经彻底卸载">
@@ -374,9 +374,9 @@
 <p><font size="3" color="#000000"><strong>4.1</strong> 在开始菜单中找到SQL Server配置管理器，打开。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/SpZkDlzkIBwI99j9vRVaSiHM1Au*n3ly9TrQvdUtrBY!/r/dC0BAAAAAAAA" alt=""></font></p>
 <p><font size="3" color="#000000"><strong>4.2</strong> 展开SQL Server网络配置，点击SQLEXPRESS的协议，然后右键单击TCP/IP协议，选择启动，然后会弹出要求重启服务的警告。不要怕，接下来就去重启服务。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/fsB9dnLy567YB5UDh25X4xWe4l5gRjiAPRlXI7Yae.w!/r/dDABAAAAAAAA" alt=""></font></p>
 <p><font size="3" color="#000000"><strong>4.3</strong> 直接在Win10搜索框输入“服务”，就可以打开服务了(如果不是win10，可以按Win+R，运行services.msc，回车)。</font></p>
-<p><font size="3" color="#000000">进入服务窗口后，找到SQL Server(SQLEXPRESS)，右键单击选择重新启动，SQLEXPRESS是前面安装的实例名称，如果跟我不一样，就要找到你安装的实例对应的服务，然后重新启动。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/rGXlWB*d0XuAV*6yZjZ66bmgBd6EONPM6Zm4y0qt8F8!/r/dPMAAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aUnU.*pKeGr0CR9bQtHVD1HwKRcrfqjN14bjvavMn*M!/r/dDEBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000">进入服务窗口后，找到SQL Server(SQLEXPRESS)（如果跟我不一样，就要找到你安装的实例对应的服务），右键单击选择启动或重新启动，如果启动类型不是自动启动，建议修改为自动启动，这样就不用每次开机后手动启动这项服务了。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/rGXlWB*d0XuAV*6yZjZ66bmgBd6EONPM6Zm4y0qt8F8!/r/dPMAAAAAAAAA" alt=""><br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/aUnU.*pKeGr0CR9bQtHVD1HwKRcrfqjN14bjvavMn*M!/r/dDEBAAAAAAAA" alt=""></font></p>
 <p><font size="3" color="#000000"><strong>4.4</strong> 完成服务的重启后，在开始菜单中找到SQL Server Management Studio，这个是数据库管理工具，可以把快捷方式复制到桌面，然后打开。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/OSD25UJQLVsX7OnyDdwiyx.FfVLUqAWOkFlFTxNzlko!/r/dC0BAAAAAAAA" alt=""></font></p>
-<p><font size="3" color="#000000"><strong>4.5</strong> 连接到服务器，身份验证方式选择Windows身份验证，服务器名称填“(local)\实例名”，如果前面的安装的实例跟我一样，就是(local)\SQLEXPRESS，填写完之后就可以连接到数据库服务器了。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/imEj*4FlLE9pNNsjyeljN6cRbwa4xxWjkREFNgQOem8!/r/dDEBAAAAAAAA" alt=""></font></p>
+<p><font size="3" color="#000000"><strong>4.5</strong> 连接到服务器，身份验证方式选择Windows身份验证，服务器名称填“(local)\实例名”，如果前面的安装的实例跟我一样，就是“(local)\SQLEXPRESS”，填写完之后就可以连接到数据库服务器了。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/imEj*4FlLE9pNNsjyeljN6cRbwa4xxWjkREFNgQOem8!/r/dDEBAAAAAAAA" alt=""></font></p>
 <p><font size="4" color="#ff0000">如果还有任何问题，欢迎与我交流，交流方式是这样的，保存下面的二维码，进入支付宝扫一扫，打开相册选择这张图，输入100，然后输入支付密码。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/YEk6dOXgmqKDN8.1hJWJgypmfuo982OiqMWQAD2CLPs!/r/dDMBAAAAAAAA" alt=""></font></p>
 
       
