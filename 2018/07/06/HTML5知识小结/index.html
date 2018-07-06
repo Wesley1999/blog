@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="HTML," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="先占坑，有时间再写。">
-<meta name="keywords" content="Python">
+<meta name="description" content="HTML语言是学习JavaEE前应该学习的基础知识，HTML语言比较简单，本文是博主经过一天的学习后写出的小结。本文中HTML特指HTML5。">
+<meta name="keywords" content="HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML5知识小结">
 <meta property="og:url" content="http://yoursite.com/2018/07/06/HTML5知识小结/index.html">
 <meta property="og:site_name" content="WSG&#39;s Blog">
-<meta property="og:description" content="先占坑，有时间再写。">
+<meta property="og:description" content="HTML语言是学习JavaEE前应该学习的基础知识，HTML语言比较简单，本文是博主经过一天的学习后写出的小结。本文中HTML特指HTML5。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-06T02:42:39.707Z">
+<meta property="og:updated_time" content="2018-07-06T03:46:28.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5知识小结">
-<meta name="twitter:description" content="先占坑，有时间再写。">
+<meta name="twitter:description" content="HTML语言是学习JavaEE前应该学习的基础知识，HTML语言比较简单，本文是博主经过一天的学习后写出的小结。本文中HTML特指HTML5。">
 
 
 
@@ -296,7 +296,46 @@
       
 
       
-        <p><font size="3" color="#000000">先占坑，有时间再写。</font></p>
+        <p>HTML语言是学习JavaEE前应该学习的基础知识，HTML语言比较简单，本文是博主经过一天的学习后写出的小结。<br>本文中HTML特指HTML5。<br><a id="more"></a></p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。 HTML是一种基础技术，常与CSS、JavaScript一起被众多网站用于设计令人赏心悦目的网页、网页应用程序以及移动应用程序的用户界面。</p>
+<p>——维基百科</p>
+</blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML代码比较简单，很快就能学会，可以轻松阅读。HTML的编辑工具起点很低，用记事本都可以完成。HTML文件有两种格式，分别是.html和.htm，目前后者更常用，.htm后缀的出现是因为以前有些软件仅支持三字节的后缀，但现在不存在这样的问题。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;与JSP相比，HTML页面简单的多。JSP文件需要先编译成servlet程序，再编译成.class文件，再生成HTML文件返回给浏览器。而HTML页面则无需编译，可以直接让浏览器阅读。两者用途不同，没有好坏之分。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HBuilder是国内的数字天堂网络公司开发的极速H5开发工具， 是基于Eclipse进行开发的，增加了很多特性，也自然而然地继承了Eclipse的各种插件，这是国内为数不低的优秀开发工具之一。</p>
+<h1 id="常用标签及属性"><a href="#常用标签及属性" class="headerlink" title="常用标签及属性"></a>常用标签及属性</h1><p>HTML中所有的代码都是以标签的形式展现出来的，下面介绍一些常用的标签。</p>
+<h2 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h2><p><hn></hn>从1到6逐渐变小。</p>
+<h2 id="换行标签"><a href="#换行标签" class="headerlink" title="换行标签"></a>换行标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>水平线可设置高度、颜色、阴影属性。</p>
+<h2 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>段落内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="字体标签"><a href="#字体标签" class="headerlink" title="字体标签"></a>字体标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"颜色代码"</span> <span class="attr">size</span>=<span class="string">"尺寸代码"</span> <span class="attr">face</span>=<span class="string">"字体代码"</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="斜体标签"><a href="#斜体标签" class="headerlink" title="斜体标签"></a>斜体标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span>&gt;</span>斜体文字<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="粗体标签"><a href="#粗体标签" class="headerlink" title="粗体标签"></a>粗体标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span>粗体文字<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"图片地址"</span> <span class="attr">width</span>=<span class="string">"宽度"</span> <span class="attr">height</span>=<span class="string">"高度"</span> <span class="attr">alt</span>=<span class="string">"无法正常显示时的提示信息"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不设置width和height的大小，默认显示图片的真实大小；</p>
+<p>img只设置width或height其中的一个，另一个会按比例自动缩放；</p>
+<p>设置width和height，指定图片的大小。</p>
+<p>图片地址中，../表示当前目录的上级目录，./表示当前目录。。</p>
+<h2 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h2><h3 id="无序列表标签"><a href="#无序列表标签" class="headerlink" title="无序列表标签"></a>无序列表标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ur</span> <span class="attr">type</span>=<span class="string">"样式名称"</span>&gt;</span><span class="tag">&lt;/<span class="name">ur</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>样式一般不在这里设计，在 css中设计。</p>
+<h3 id="有序列表标签"><a href="#有序列表标签" class="headerlink" title="有序列表标签"></a>有序列表标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">or</span> <span class="attr">type</span>=<span class="string">"序号样式名称"</span> <span class="attr">start</span>=<span class="string">"起始数字"</span> <span class="attr">reversed</span>=<span class="string">"顺序or倒序"</span>&gt;</span><span class="tag">&lt;/<span class="name">or</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="列表的项"><a href="#列表的项" class="headerlink" title="列表的项"></a>列表的项</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="超链接标签"><a href="#超链接标签" class="headerlink" title="超链接标签"></a>超链接标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"超链接地址"</span> <span class="attr">target</span>=<span class="string">"当前页面or新页面or自定义"</span>&gt;</span>显示的文字<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>超链接地址可以是绝对地址也可以是相对地址，绝对地址前面的http不能省略。</p>
+<h2 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"边框宽度"</span> <span class="attr">width</span>=<span class="string">"宽度"</span> <span class="attr">height</span>=<span class="string">"高度"</span> <span class="attr">align</span>=<span class="string">"位置"</span> <span class="attr">bgcolor</span>=<span class="string">"背景色 "</span><span class="attr">cellspacing</span>=<span class="string">"单元格与单元格间距"</span> <span class="attr">cellpadding</span>=<span class="string">"单元格与内容间距"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>没有border属性表示没有边框，没有width和height属性默认与内容一致。</p>
+<h3 id="行标签"><a href="#行标签" class="headerlink" title="行标签"></a>行标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="列标签"><a href="#列标签" class="headerlink" title="列标签"></a>列标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>tr标签在table标签中，td标签在tr标签中。</p>
+<p>tr和td属性也有与table类似的属性，内部的优先级高，也有些数值大的优先级高。</p>
+<h3 id="表格合并属性"><a href="#表格合并属性" class="headerlink" title="表格合并属性"></a>表格合并属性</h3><h4 id="跨列属性"><a href="#跨列属性" class="headerlink" title="跨列属性"></a>跨列属性</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colspan="跨列数"</span><br></pre></td></tr></table></figure>
+<h4 id="跨行属性"><a href="#跨行属性" class="headerlink" title="跨行属性"></a>跨行属性</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rowspan="跨行数"</span><br></pre></td></tr></table></figure>
+<h2 id="框架集结构标签"><a href="#框架集结构标签" class="headerlink" title="框架集结构标签"></a>框架集结构标签</h2><h3 id="水平划分标签"><a href="#水平划分标签" class="headerlink" title="水平划分标签"></a>水平划分标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">frameset</span> <span class="attr">cols</span>=<span class="string">"左百分比,*"</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line">    &lt;frame src="左链接" /&gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">"右链接"</span> /&gt;</span>或<span class="tag">&lt;<span class="name">frame</span> <span class="attr">name</span>=<span class="string">"超链接target属性中的自定义"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="垂直划分标签"><a href="#垂直划分标签" class="headerlink" title="垂直划分标签"></a>垂直划分标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">frameset</span> <span class="attr">rows</span>=<span class="string">"左百分比,*"</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line">    &lt;frame src="上链接" /&gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">"下链接"</span> /&gt;</span>或<span class="tag">&lt;<span class="name">frame</span> <span class="attr">name</span>=<span class="string">"超链接target属性中的自定义"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>框架集结构标签不能放在body标签中。</p>
+<h2 id="html的注释"><a href="#html的注释" class="headerlink" title="html的注释"></a>html的注释</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注释内容--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>快捷键：Ctrl+/</p>
+<p><font color="#999999">由于HTML语法与MARKDOWN语法不同，这里就不进行演示了。</font></p>
 
       
     </div>
@@ -314,7 +353,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
           
         </div>
       
@@ -387,8 +426,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +487,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用标签及属性"><span class="nav-number">3.</span> <span class="nav-text">常用标签及属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题标签"><span class="nav-number">3.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换行标签"><span class="nav-number">3.2.</span> <span class="nav-text">换行标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平线标签"><span class="nav-number">3.3.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落标签"><span class="nav-number">3.4.</span> <span class="nav-text">段落标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体标签"><span class="nav-number">3.5.</span> <span class="nav-text">字体标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斜体标签"><span class="nav-number">3.6.</span> <span class="nav-text">斜体标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#粗体标签"><span class="nav-number">3.7.</span> <span class="nav-text">粗体标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片标签"><span class="nav-number">3.8.</span> <span class="nav-text">图片标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表标签"><span class="nav-number">3.9.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无序列表标签"><span class="nav-number">3.9.1.</span> <span class="nav-text">无序列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序列表标签"><span class="nav-number">3.9.2.</span> <span class="nav-text">有序列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表的项"><span class="nav-number">3.9.3.</span> <span class="nav-text">列表的项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接标签"><span class="nav-number">3.10.</span> <span class="nav-text">超链接标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格标签"><span class="nav-number">3.11.</span> <span class="nav-text">表格标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行标签"><span class="nav-number">3.11.1.</span> <span class="nav-text">行标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列标签"><span class="nav-number">3.11.2.</span> <span class="nav-text">列标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格合并属性"><span class="nav-number">3.11.3.</span> <span class="nav-text">表格合并属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#跨列属性"><span class="nav-number">3.11.3.1.</span> <span class="nav-text">跨列属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨行属性"><span class="nav-number">3.11.3.2.</span> <span class="nav-text">跨行属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架集结构标签"><span class="nav-number">3.12.</span> <span class="nav-text">框架集结构标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#水平划分标签"><span class="nav-number">3.12.1.</span> <span class="nav-text">水平划分标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直划分标签"><span class="nav-number">3.12.2.</span> <span class="nav-text">垂直划分标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html的注释"><span class="nav-number">3.13.</span> <span class="nav-text">html的注释</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
