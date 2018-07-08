@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="WSG&#39;s Blog">
 <meta property="og:description" content="如果把HTML比做成一个素颜的美女，那么CSS就是给她化妆用到的工具，JavaScript则可以赋予她跳舞的能力。JavaScript在网页中的作用就是让整个页面具有动态效果，好的页面，这三者都很重要。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-08T13:52:05.639Z">
+<meta property="og:updated_time" content="2018-07-08T13:56:58.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript知识小结">
 <meta name="twitter:description" content="如果把HTML比做成一个素颜的美女，那么CSS就是给她化妆用到的工具，JavaScript则可以赋予她跳舞的能力。JavaScript在网页中的作用就是让整个页面具有动态效果，好的页面，这三者都很重要。">
@@ -307,8 +307,14 @@
 ===：不转换类型相等返回true，相反运算符为!==
 </code></pre><p>JavaScript可以用==判断字符串是否相等，而Java中用==判断的是字符串地址是否相同</p>
 <h1 id="DOM常用对象"><a href="#DOM常用对象" class="headerlink" title="DOM常用对象"></a>DOM常用对象</h1><p>Document:整个html文件都成为一个document文档<br>Element:所有的标签都是Element元素<br>Attribute：标签里面的属性<br>Text：标签中间夹着的内容为text文本<br>Node:document、element、attribute、text统称为节点node</p>
-<h2 id="Document对象"><a href="#Document对象" class="headerlink" title="Document对象"></a>Document对象</h2><p>每个载入浏览器的HTML文档都会成为Document对象。<br>    document.getElementById()    返回对拥有指定 id 的第一个对象的引用。<br>    document.getElementsByName()    返回带有指定名称的对象集合。<br>    document.getElementsByTagName()    返回带有指定标签名的对象集合。<br>后面两个方法获取之后需要遍历。<br>以下两个方法很重要，但是在手册中查不到。<br>    document.createTextNode()    创建文本节点<br>    document.createElement()    创建元素节点</p>
-<h2 id="Element对象"><a href="#Element对象" class="headerlink" title="Element对象"></a>Element对象</h2><pre><code>element.appendChild()     向元素添加新的子节点，作为最后一个子节点。
+<h2 id="Document对象"><a href="#Document对象" class="headerlink" title="Document对象"></a>Document对象</h2><p>每个载入浏览器的HTML文档都会成为Document对象。</p>
+<pre><code>document.getElementById()    返回对拥有指定 id 的第一个对象的引用。
+document.getElementsByName()    返回带有指定名称的对象集合。
+document.getElementsByTagName()    返回带有指定标签名的对象集合。
+</code></pre><p>后面两个方法获取之后需要遍历。<br>以下两个方法很重要，但是在手册中查不到。</p>
+<pre><code>document.createTextNode()    创建文本节点
+document.createElement()    创建元素节点
+</code></pre><h2 id="Element对象"><a href="#Element对象" class="headerlink" title="Element对象"></a>Element对象</h2><pre><code>element.appendChild()     向元素添加新的子节点，作为最后一个子节点。
 element.firstChild        返回元素的首个子节点。
 element.getAttribute()    返回元素节点的指定属性值。
 element.innerHTML         设置或返回元素的内容。
