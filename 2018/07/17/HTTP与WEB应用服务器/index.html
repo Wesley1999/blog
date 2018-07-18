@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/06/11/hello-world/index.html">
+<meta property="og:title" content="HTTP与WEB应用服务器">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/HTTP与WEB应用服务器/index.html">
 <meta property="og:site_name" content="WSG&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-14T15:47:43.431Z">
+<meta property="og:updated_time" content="2018-07-18T04:42:26.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="HTTP与WEB应用服务器">
+<meta name="twitter:description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/11/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/17/HTTP与WEB应用服务器/"/>
 
 
 
 
 
-  <title>Hello World | WSG's Blog</title>
+  <title>HTTP与WEB应用服务器 | WSG's Blog</title>
   
 
 
@@ -228,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/HTTP与WEB应用服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王少刚">
@@ -245,7 +246,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">HTTP与WEB应用服务器</h1>
         
 
         <div class="post-meta">
@@ -257,8 +258,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-11T22:00:00+08:00">
-                2018-06-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T22:00:00+08:00">
+                2018-07-17
               </time>
             
 
@@ -295,15 +296,30 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。</p>
+<h1 id="请求简介"><a href="#请求简介" class="headerlink" title="请求简介"></a>请求简介</h1><h2 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h2><p>有请求方式(get/post)、请求的资源、协议版本号。</p>
+<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><p>以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信息。</p>
+<h2 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h2><p>post请求提交的数据，如果是get请求，请求体为空，数据只会在地址中出现。</p>
+<h1 id="响应简介"><a href="#响应简介" class="headerlink" title="响应简介"></a>响应简介</h1><h2 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h2><p>有协议、状态码、描述信息，最重要的是状态码。<br>常见状态码：</p>
+<pre><code>200：一切正常
+302：重定向(跳转)
+304：拿本地缓存(告诉客户端页面未修改，拿本地缓存即可)
+404：没有该资源
+500：服务器端错误(Java代码报错)
+</code></pre><h2 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h2><pre><code>以键值对向形式出现，包含服务器版本、最后修改时间(标准时间，北京时间-8h)、上一次修改时间等信息。
+</code></pre><h2 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h2><pre><code>是页面现实的内容，HTML代码
+</code></pre><h1 id="WEB应用服务器"><a href="#WEB应用服务器" class="headerlink" title="WEB应用服务器"></a>WEB应用服务器</h1><p>web应用服务器是供向外发布web资源的服务器软件。<br>web资源是存在于web应用服务器可供外界访问的资源就是web资源<br>目前市面上流行的web应用服务器有以下这些：<br>weblogic：oracle公司的大型收费web服务器，支持全部JavaEE规范<br>websOhere：IBM公司的大型收费web服务器，支持全部JavaEE规范<br>Tomcat：Apache开源组织下的开源免费的中小型web服务器，支持JavaEE中的servlet和jsp规范，现在大部分企业也用Tomcat</p>
+<h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><p>Tomcat是用Java写的，运行需要Java环境，如果没有配置JAVA_HOME，启动startup.bat会闪退。<br>计算机运行的每个 程序都会占用一个端口，如果启动Tomcat端口被占用，有两种处理方式。第一种是用命令netstat -aov查看进程pid，再任务管理器中杀进程。第二种是在配置文件中改端口。<br>访问http如果不写端口，会使用默认端口80，所以如果Tomcat使用80端口，访问时就不需要再输入端口。</p>
+<h2 id="eclipse绑定tomcat"><a href="#eclipse绑定tomcat" class="headerlink" title="eclipse绑定tomcat"></a>eclipse绑定tomcat</h2><p>进入Window-Perferences-Server-Runtime Environment，添加tomcat目录。<br>在启动前，双击Servers中的Tomcat可以修改项目发布位置，建议修改为tomcat的webapps目录</p>
+<h2 id="IDEA绑定tomcat"><a href="#IDEA绑定tomcat" class="headerlink" title="IDEA绑定tomcat"></a>IDEA绑定tomcat</h2><p>进入Settings-Buile, Execution, Deployment-Application Containers，添加tomcat目录，也可以在Run的时候编辑。<br>在启动前，进入Deployment选项卡可以修改项目发布位置，建议修改为tomcat的webapps目录。</p>
+<h1 id="Web应用的目录结构"><a href="#Web应用的目录结构" class="headerlink" title="Web应用的目录结构"></a>Web应用的目录结构</h1><pre><code>web
+   |----html、jsp、css、js文件等
+   |
+   |----WEB-INF目录
+        |----classes目录(java类)
+        |----lib目录(java类运行所需jar包)
+        |----web.xml文件(web应用的配置文件)
+</code></pre><p>WEB-INF目录是受保护的，外部不能直接访问(可以通过java代码访问)。</p>
 
       
     </div>
@@ -319,6 +335,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
 
       
       
@@ -328,14 +350,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/16/XML与反射/" rel="next" title="XML与反射">
+                <i class="fa fa-chevron-left"></i> XML与反射
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/11/SQL-Server安装教程/" rel="prev" title="SQL server 2008及管理工具安装教程">
-                SQL server 2008及管理工具安装教程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/18/Servlet与ServletContext/" rel="prev" title="Servlet与ServletContext">
+                Servlet与ServletContext <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -459,7 +485,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#请求简介"><span class="nav-number">2.</span> <span class="nav-text">请求简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#请求行"><span class="nav-number">2.1.</span> <span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求头"><span class="nav-number">2.2.</span> <span class="nav-text">请求头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求体"><span class="nav-number">2.3.</span> <span class="nav-text">请求体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应简介"><span class="nav-number">3.</span> <span class="nav-text">响应简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应行"><span class="nav-number">3.1.</span> <span class="nav-text">响应行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应头"><span class="nav-number">3.2.</span> <span class="nav-text">响应头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应体"><span class="nav-number">3.3.</span> <span class="nav-text">响应体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB应用服务器"><span class="nav-number">4.</span> <span class="nav-text">WEB应用服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat"><span class="nav-number">5.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#eclipse绑定tomcat"><span class="nav-number">5.1.</span> <span class="nav-text">eclipse绑定tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA绑定tomcat"><span class="nav-number">5.2.</span> <span class="nav-text">IDEA绑定tomcat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web应用的目录结构"><span class="nav-number">6.</span> <span class="nav-text">Web应用的目录结构</span></a></li></ol></div>
             
 
           </div>
