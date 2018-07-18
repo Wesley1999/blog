@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="WSG&#39;s Blog">
 <meta property="og:description" content="概念Servlet是运行在服务器端的Java小程序，是sun公司提供的一套规范Servlet是运行在服务器端的Java小程序，是sun公司提供的一套规范(接口)，用来处理客户端请求、响应给浏览器的动态资源，但Servlet的实质就是Java代码，通过Java的API动态地向客户端输出内容。使用servlet需要导入jar包，tomcat自带。 Servlet的APIServlet接口中的方法ini">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-18T06:51:20.404Z">
+<meta property="og:updated_time" content="2018-07-18T06:52:44.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet与ServletContext">
 <meta name="twitter:description" content="概念Servlet是运行在服务器端的Java小程序，是sun公司提供的一套规范Servlet是运行在服务器端的Java小程序，是sun公司提供的一套规范(接口)，用来处理客户端请求、响应给浏览器的动态资源，但Servlet的实质就是Java代码，通过Java的API动态地向客户端输出内容。使用servlet需要导入jar包，tomcat自带。 Servlet的APIServlet接口中的方法ini">
@@ -328,7 +328,7 @@ destroy()
 <p>获得绝对路径的方式只有两种，另一种方式是通过类加载器获得。</p>
 <h3 id="ServletContext是一个域对象-重要"><a href="#ServletContext是一个域对象-重要" class="headerlink" title="ServletContext是一个域对象(重要)"></a>ServletContext是一个域对象(重要)</h3><p>存储数据的区域就是域对象。利用ServletContext存储的数据是全局数据，可以避免页面刷新时servlet数据重置的问题。<br>存数据：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.setAttribute(<span class="string">"name"</span>,<span class="string">"张三"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>取数据：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stringname=(String)<span class="keyword">this</span>.getServletContext().getAttribute(<span class="string">"name"</span>);</span><br><span class="line">System.out.println(name);</span><br></pre></td></tr></table></figure></p>
-<p>控制台输出：<br>张三</p>
+<p>控制台输出：<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">张三</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
