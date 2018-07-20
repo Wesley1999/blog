@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信">
+<meta name="description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式、c">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP与WEB应用服务器">
 <meta property="og:url" content="http://yoursite.com/2018/07/17/HTTP与WEB应用服务器/index.html">
 <meta property="og:site_name" content="WSG&#39;s Blog">
-<meta property="og:description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信">
+<meta property="og:description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式、c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-18T04:42:26.647Z">
+<meta property="og:updated_time" content="2018-07-20T00:45:45.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP与WEB应用服务器">
-<meta name="twitter:description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信">
+<meta name="twitter:description" content="概念http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。 请求简介请求行有请求方式(get/post)、请求的资源、协议版本号。 请求头以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式、c">
 
 
 
@@ -298,7 +298,7 @@
       
         <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>http是超文本传输协议，http request和http response成对出现。HTTP协议有两种，1.0版本请求后会断开连接，1.1版本会保持连接。1.0版本只能获得一个web资源，1.1版本能获得多个web资源。现在用的都是1.1版本。</p>
 <h1 id="请求简介"><a href="#请求简介" class="headerlink" title="请求简介"></a>请求简介</h1><h2 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h2><p>有请求方式(get/post)、请求的资源、协议版本号。</p>
-<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><p>以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式等信息。</p>
+<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><p>以键值对向形式出现，包含来源、语言、内核、浏览器版本、可接受格式、cookie等信息。</p>
 <h2 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h2><p>post请求提交的数据，如果是get请求，请求体为空，数据只会在地址中出现。</p>
 <h1 id="响应简介"><a href="#响应简介" class="headerlink" title="响应简介"></a>响应简介</h1><h2 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h2><p>有协议、状态码、描述信息，最重要的是状态码。<br>常见状态码：</p>
 <pre><code>200：一切正常
@@ -306,7 +306,7 @@
 304：拿本地缓存(告诉客户端页面未修改，拿本地缓存即可)
 404：没有该资源
 500：服务器端错误(Java代码报错)
-</code></pre><h2 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h2><pre><code>以键值对向形式出现，包含服务器版本、最后修改时间(标准时间，北京时间-8h)、上一次修改时间等信息。
+</code></pre><h2 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h2><pre><code>以键值对向形式出现，包含服务器版本、最后修改时间(标准时间，北京时间-8h)、上一次修改时间、cookie等信息。
 </code></pre><h2 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h2><pre><code>是页面现实的内容，HTML代码
 </code></pre><h1 id="WEB应用服务器"><a href="#WEB应用服务器" class="headerlink" title="WEB应用服务器"></a>WEB应用服务器</h1><p>web应用服务器是供向外发布web资源的服务器软件。<br>web资源是存在于web应用服务器可供外界访问的资源就是web资源<br>目前市面上流行的web应用服务器有以下这些：<br>weblogic：oracle公司的大型收费web服务器，支持全部JavaEE规范<br>websOhere：IBM公司的大型收费web服务器，支持全部JavaEE规范<br>Tomcat：Apache开源组织下的开源免费的中小型web服务器，支持JavaEE中的servlet和jsp规范，现在大部分企业也用Tomcat</p>
 <h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><p>Tomcat是用Java写的，运行需要Java环境，如果没有配置JAVA_HOME，启动startup.bat会闪退。<br>计算机运行的每个 程序都会占用一个端口，如果启动Tomcat端口被占用，有两种处理方式。第一种是用命令netstat -aov查看进程pid，再任务管理器中杀进程。第二种是在配置文件中改端口。<br>访问http如果不写端口，会使用默认端口80，所以如果Tomcat使用80端口，访问时就不需要再输入端口。</p>
@@ -439,7 +439,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

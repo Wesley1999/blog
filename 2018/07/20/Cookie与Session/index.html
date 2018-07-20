@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="会话的概念从进入站点 ，到关闭客户端，称为一次会话。个人经验：Chrome浏览器如果设置“启动时从上次停下的地方继续”，视为永远不结束会话。会话技术分为Cookie和Session：Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookieSession：将数据存储到服务器端，安全性相对好，增加服务器的压力 创建与发送Cookie对象1234//">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie与Session">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/Cookie与Session/index.html">
+<meta property="og:site_name" content="WSG&#39;s Blog">
+<meta property="og:description" content="会话的概念从进入站点 ，到关闭客户端，称为一次会话。个人经验：Chrome浏览器如果设置“启动时从上次停下的地方继续”，视为永远不结束会话。会话技术分为Cookie和Session：Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookieSession：将数据存储到服务器端，安全性相对好，增加服务器的压力 创建与发送Cookie对象1234//">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-20T05:25:42.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie与Session">
+<meta name="twitter:description" content="会话的概念从进入站点 ，到关闭客户端，称为一次会话。个人经验：Chrome浏览器如果设置“启动时从上次停下的地方继续”，视为永远不结束会话。会话技术分为Cookie和Session：Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookieSession：将数据存储到服务器端，安全性相对好，增加服务器的压力 创建与发送Cookie对象1234//">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/Cookie与Session/"/>
+
+
+
+
+
+  <title>Cookie与Session | WSG's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WSG's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/Cookie与Session/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王少刚">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WSG's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cookie与Session</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T12:00:00+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="会话的概念"><a href="#会话的概念" class="headerlink" title="会话的概念"></a>会话的概念</h1><p>从进入站点 ，到关闭客户端，称为一次会话。<br>个人经验：Chrome浏览器如果设置“启动时从上次停下的地方继续”，视为永远不结束会话。<br>会话技术分为Cookie和Session：<br>Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie<br>Session：将数据存储到服务器端，安全性相对好，增加服务器的压力</p>
+<h1 id="创建与发送Cookie对象"><a href="#创建与发送Cookie对象" class="headerlink" title="创建与发送Cookie对象"></a>创建与发送Cookie对象</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建cookie</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>,<span class="string">"zhangsan"</span>);</span><br><span class="line"><span class="comment">// 将cookie中存储的信息发送到客户端(在响应头中)</span></span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
+<p>Cookie不支持中文。</p>
+<h1 id="Cookie的持久化"><a href="#Cookie的持久化" class="headerlink" title="Cookie的持久化"></a>Cookie的持久化</h1><p>Cookie默认是会话级别的，如果不设置持久化时间，Cookie会存储在浏览器的内存中，浏览器关闭，Cookie信息销毁，如果设置持久化时间，Cookie信息会被持久化到浏览器的磁盘文件里<br>设置Cookie的持久化时间：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookie.setMaxAge(<span class="keyword">int</span> seconds);</span><br></pre></td></tr></table></figure></p>
+<p>参数单位是秒，但实际销毁时间不一定准确。</p>
+<h1 id="设置Cookie携带路径"><a href="#设置Cookie携带路径" class="headerlink" title="设置Cookie携带路径"></a>设置Cookie携带路径</h1><p>如果不设置携带路径，那么该cookie信息会在访问产生该cookie的web资源所在的路径都携带Cookie信息(同级和同级的下级)。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookie.setPath(String path);</span><br></pre></td></tr></table></figure></p>
+<p>参数是指定要携带的路径，带项目名。如果只写项目名称，代表访问WEB应用中所有路径都携带Cookie。如果只写”/“，代表访问服务器中所有路径都携带cookie。</p>
+<h1 id="删除Cookie"><a href="#删除Cookie" class="headerlink" title="删除Cookie"></a>删除Cookie</h1><p>如果要删除一个Cookie，可以设置一个同名Cookie，携带路径与创建的Cookie完全一致，持久化时间为0，再发送到客户端。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>,<span class="string">"zhangsan"</span>);</span><br><span class="line">cookie.setPath(<span class="string">"/index.html"</span>);</span><br><span class="line">cookie.setMaxAge(<span class="number">0</span>);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure></p>
+<h1 id="获得Cookie"><a href="#获得Cookie" class="headerlink" title="获得Cookie"></a>获得Cookie</h1><p>通过request获得所有的Cookie：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie[] cookies = request.getCookies();</span><br></pre></td></tr></table></figure></p>
+<p>遍历Cookie数组，通过Cookie的名称获得我们想要的Cookie：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Cookie cookie : cookies)&#123;</span><br><span class="line">	<span class="keyword">if</span>(cookie.getName().equal(cookieName))&#123;</span><br><span class="line">		String cookieValue = cookie.getValue();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Session的介绍"><a href="#Session的介绍" class="headerlink" title="Session的介绍"></a>Session的介绍</h1><p>Session技术是将数据存储在服务器端的技术，会为每个客户端都创建一块内存空间存储客户的数据，但客户端需要每次都携带一个标识ID去服务器中寻找属于自己的内存空间。所以说Session的实现是基于Cookie，Session需要借助于Cookie存储客户的唯一性标识JSESSIONID。</p>
+<h1 id="获得Session对象"><a href="#获得Session对象" class="headerlink" title="获得Session对象"></a>获得Session对象</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br></pre></td></tr></table></figure>
+<p>此方法看起来简单，其实底层很智能。调用该方法时，如果服务器端没有该会话的Session对象，会创建一个新的Session返回，如果已经有了属于该会话的Session，直接将已有的Session返回（实质就是根据JSESSIONID判断该客户端是否在服务器上已经存在session）。</p>
+<h1 id="session是一个域对象，具有域对象的三个共同方法："><a href="#session是一个域对象，具有域对象的三个共同方法：" class="headerlink" title="session是一个域对象，具有域对象的三个共同方法："></a>session是一个域对象，具有域对象的三个共同方法：</h1><pre><code>session.setAttribute(String name,Object obj)
+session.getAttribute(String name)
+session.removeAttribute(String name)
+</code></pre><h1 id="设置session过期时间"><a href="#设置session过期时间" class="headerlink" title="设置session过期时间"></a>设置session过期时间</h1><p>session的默认过期时间是30分钟，配置在Tomcat的全局配置文件中，不建议修改全局配置文件，如果要修改项目的session过期时间，可以在项目的web.xml中进行配置，中间的值单位是分钟。过期时间从不操作服务器端的资源开始计算。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Session对象的生命周期"><a href="#Session对象的生命周期" class="headerlink" title="Session对象的生命周期"></a>Session对象的生命周期</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p>第一次执行request.getSession()时创建。</p>
+<h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><p>① 服务器非正常关闭时(停电、爆炸)<br>② session过期/失效（默认30分钟）<br>③ 手动销毁session：session.invalidate();</p>
+<h2 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h2><p>默认在一次会话中，也就是说在，一次会话中任何资源公用一个session对象。</p>
+<h1 id="Session的持久化"><a href="#Session的持久化" class="headerlink" title="Session的持久化"></a>Session的持久化</h1><p>Session编号的本质是Cookie，所以即使服务器上的Session对象不销毁，当用户结束会话时，JSESSIONID也会像Cookie一样默认被销毁，下次访问只能重新创建JSESSIONID。<br>如果要实现Session持久化，就要创建一个Cookie对象，存入JSESSIONID(名称必须完全一致)，并设置该Cookie对象的持久化时间，相应给客户端。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建属于该客户端(回话)的私有的session区域</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"JSESSIONID"</span>, session.getId());</span><br><span class="line"><span class="comment">// 设置Cookie的持久化时间</span></span><br><span class="line">cookie.setMaxAge(<span class="number">86400</span>);    <span class="comment">//一天</span></span><br><span class="line">response.addCookie(cookie);</span><br><span class="line">session.setAttribute(<span class="string">"name"</span>,<span class="string">"jerry"</span>);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/19/Request知识小结/" rel="next" title="Request知识小结">
+                <i class="fa fa-chevron-left"></i> Request知识小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王少刚</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#会话的概念"><span class="nav-number">1.</span> <span class="nav-text">会话的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建与发送Cookie对象"><span class="nav-number">2.</span> <span class="nav-text">创建与发送Cookie对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie的持久化"><span class="nav-number">3.</span> <span class="nav-text">Cookie的持久化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置Cookie携带路径"><span class="nav-number">4.</span> <span class="nav-text">设置Cookie携带路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除Cookie"><span class="nav-number">5.</span> <span class="nav-text">删除Cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获得Cookie"><span class="nav-number">6.</span> <span class="nav-text">获得Cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session的介绍"><span class="nav-number">7.</span> <span class="nav-text">Session的介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获得Session对象"><span class="nav-number">8.</span> <span class="nav-text">获得Session对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#session是一个域对象，具有域对象的三个共同方法："><span class="nav-number">9.</span> <span class="nav-text">session是一个域对象，具有域对象的三个共同方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置session过期时间"><span class="nav-number">10.</span> <span class="nav-text">设置session过期时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session对象的生命周期"><span class="nav-number">11.</span> <span class="nav-text">Session对象的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建"><span class="nav-number">11.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁"><span class="nav-number">11.2.</span> <span class="nav-text">销毁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用范围"><span class="nav-number">11.3.</span> <span class="nav-text">作用范围</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session的持久化"><span class="nav-number">12.</span> <span class="nav-text">Session的持久化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王少刚</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
