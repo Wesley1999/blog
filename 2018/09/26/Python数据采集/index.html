@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,爬虫," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.Beautiful Soup Beautiful Soup是一个Python包，功能包括解析HTML、XML文档、修复含有未闭合标签等错误的文档（此种文档常被称为tag soup）。这个扩展包为待解析的页面建立一棵树，以便提取其中的数据，这在网络数据采集时非常有用。 ——维基百科  1.1一个简单的示例12345from urllib.request import urlopenfrom bs">
+<meta name="keywords" content="Python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据采集">
+<meta property="og:url" content="http://yoursite.com/2018/09/26/Python数据采集/index.html">
+<meta property="og:site_name" content="WSG&#39;s Blog">
+<meta property="og:description" content="1.Beautiful Soup Beautiful Soup是一个Python包，功能包括解析HTML、XML文档、修复含有未闭合标签等错误的文档（此种文档常被称为tag soup）。这个扩展包为待解析的页面建立一棵树，以便提取其中的数据，这在网络数据采集时非常有用。 ——维基百科  1.1一个简单的示例12345from urllib.request import urlopenfrom bs">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-26T15:34:03.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python数据采集">
+<meta name="twitter:description" content="1.Beautiful Soup Beautiful Soup是一个Python包，功能包括解析HTML、XML文档、修复含有未闭合标签等错误的文档（此种文档常被称为tag soup）。这个扩展包为待解析的页面建立一棵树，以便提取其中的数据，这在网络数据采集时非常有用。 ——维基百科  1.1一个简单的示例12345from urllib.request import urlopenfrom bs">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/26/Python数据采集/"/>
+
+
+
+
+
+  <title>Python数据采集 | WSG's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WSG's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/26/Python数据采集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王少刚">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WSG's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python数据采集</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-26T22:00:00+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-Beautiful-Soup"><a href="#1-Beautiful-Soup" class="headerlink" title="1.Beautiful Soup"></a>1.Beautiful Soup</h1><blockquote>
+<p>Beautiful Soup是一个Python包，功能包括解析HTML、XML文档、修复含有未闭合标签等错误的文档（此种文档常被称为tag soup）。这个扩展包为待解析的页面建立一棵树，以便提取其中的数据，这在网络数据采集时非常有用。</p>
+<p>——维基百科</p>
+</blockquote>
+<h2 id="1-1一个简单的示例"><a href="#1-1一个简单的示例" class="headerlink" title="1.1一个简单的示例"></a>1.1一个简单的示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">html = urlopen(<span class="string">"http://pythonscraping.com/pages/page1.html"</span>)</span><br><span class="line">bsObj = BeautifulSoup(html.read(), <span class="string">"html.parser"</span>)</span><br><span class="line">print(bsObj.h1)</span><br></pre></td></tr></table></figure>
+<p>运行这段程序，bsObj.h1会自动查找h1标签打印出来。</p>
+<h2 id="1-2函数find-和findAll"><a href="#1-2函数find-和findAll" class="headerlink" title="1.2函数find()和findAll()"></a>1.2函数find()和findAll()</h2><p>find()返回的是BeautifulSoup对象，而findAll()返回的一个个BeautifulSoup对象组成的列表，即使只有一个BeautifulSoup对象。<br>两者的参数如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">findAll(tag, attributes, recursive, text, limit, keywords)</span><br><span class="line">find(tag, attributes, recursive, text, keywords)</span><br></pre></td></tr></table></figure></p>
+<p>find()等价于findAll()的limit参数为1的情况。<br>在绝大多数时候，只需要使用前两个参数tag和attributes，指定标签和参数。<br>tag可以是一个值，也可以是一个列表，attributes是一个字典。</p>
+<p>向这两个函数传参，有两种形式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bsObj.findAll(id=<span class="string">"text"</span>)</span><br><span class="line">bsObj.findAll(<span class="string">""</span>, &#123;<span class="string">"id"</span>: <span class="string">"test"</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>但是，class是Python的保留字，不能以第一形式给出。</p>
+<h2 id="1-3指定查找的标签属性"><a href="#1-3指定查找的标签属性" class="headerlink" title="1.3指定查找的标签属性"></a>1.3指定查找的标签属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameList = bsObj.findAll(<span class="string">"span"</span>, &#123;<span class="string">"class"</span>: <span class="string">"green"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>上面的代码表示查找所有满足条件的span标签，条件是有”class”属性，值为”green”。</p>
+<h2 id="1-4去掉标签只保留文本"><a href="#1-4去掉标签只保留文本" class="headerlink" title="1.4去掉标签只保留文本"></a>1.4去掉标签只保留文本</h2><p>可以使用函数get_text()<br>for name in nameList:<br>    print(name.get_text())<br>通常，在准备打印、存储和操作数据时，才使用get_text()，在此之前应该尽可能地保留HTML文档的标签结构。</p>
+<h2 id="1-5BeautifulSoup对象"><a href="#1-5BeautifulSoup对象" class="headerlink" title="1.5BeautifulSoup对象"></a>1.5BeautifulSoup对象</h2><p>下面简称bsObj。<br>bsObj对象是整个HTML文档，可以通过这个对象调用函数find()、findAll()等，也可以直接调取子标签（非后代标签）获取的一列(?)或单个对象，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bsObj.div.h1</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-6其他对象（不常用）"><a href="#1-6其他对象（不常用）" class="headerlink" title="1.6其他对象（不常用）"></a>1.6其他对象（不常用）</h2><p>NavigableString对象<br>用来表示标签里的文字，不是标签。<br>Comment对象<br>用来查找HTML文档里的注释。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--这是注释--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="1-7处理相关标签"><a href="#1-7处理相关标签" class="headerlink" title="1.7处理相关标签"></a>1.7处理相关标签</h2><h3 id="1-7-1子标签和其他后代标签"><a href="#1-7-1子标签和其他后代标签" class="headerlink" title="1.7.1子标签和其他后代标签"></a>1.7.1子标签和其他后代标签</h3><p>.children函数可以获取一个节点的所有子标签。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imgs = bsObj.find(<span class="string">"table"</span>, &#123;<span class="string">"id"</span>: <span class="string">"giftList"</span>&#125;).children</span><br></pre></td></tr></table></figure></p>
+<p>.descendants函数可以获取所有后代标签。<br>这两种方式返回的都是列表(?)，不是BeautifulSoup对象，不能对其继续使用find()等方法。</p>
+<h3 id="1-7-2兄弟标签"><a href="#1-7-2兄弟标签" class="headerlink" title="1.7.2兄弟标签"></a>1.7.2兄弟标签</h3><p>.next_siblings函数可以获取所有的兄弟标签，列表类型，适用于BeautifulSoup对象，这在收集表格数据的时候非常方便，因为表格通常带有表头。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imgs = bsObj.find(<span class="string">"table"</span>, &#123;<span class="string">"id"</span>: <span class="string">"giftList"</span>&#125;).tr.next_siblings</span><br></pre></td></tr></table></figure></p>
+<p>这个函数获取的是后面的所有兄弟标签，不包含自己和前面的兄弟标签。<br>.previous_siblings函数返回的是前面的所有兄弟标签。<br>还有这两个函数的单数形式：<br>.next_sibling<br>.previous_sibling<br>返回的是单个标签。</p>
+<h3 id="1-7-3父标签（不常用）"><a href="#1-7-3父标签（不常用）" class="headerlink" title="1.7.3父标签（不常用）"></a>1.7.3父标签（不常用）</h3><p>用到.parent和.parents，略。</p>
+<h2 id="1-8获取属性"><a href="#1-8获取属性" class="headerlink" title="1.8获取属性"></a>1.8获取属性</h2><p>对于bsObj对象，对象.attr函数可以获取标签的全部属性值，对象.attr[“属性”]可以获取指定属性值。获取图片地址，就是后者的应用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image.attrs[<span class="string">"src"</span>]</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码中.attrs可以省略。</p>
+<h2 id="1-9正则匹配"><a href="#1-9正则匹配" class="headerlink" title="1.9正则匹配"></a>1.9正则匹配</h2><p>需要导入re库<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">images = bsObj.findAll(<span class="string">"img"</span>, &#123;<span class="string">"src"</span>: re.compile(<span class="string">"\.\.\/img\/gifts\/img.*\.jpg"</span>)&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>其中re.compile(“正则表达式”)的作用就是匹配满足条件的值。</p>
+<h3 id="1-9-1用正则替换字符（数据清洗）"><a href="#1-9-1用正则替换字符（数据清洗）" class="headerlink" title="1.9.1用正则替换字符（数据清洗）"></a>1.9.1用正则替换字符（数据清洗）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input = re.sub(<span class="string">'\n+'</span>, <span class="string">" "</span>, input)</span><br></pre></td></tr></table></figure>
+<h2 id="1-10Lambda表达式"><a href="#1-10Lambda表达式" class="headerlink" title="1.10Lambda表达式"></a>1.10Lambda表达式</h2><p>BeautifulSoup允许我们把特定函数类型作为findAll()函数的参数，唯一的限制条件是这些函数必须把一个标签作为参数并且返回结果是布尔类型。<br>Lambda表达式可以作为正则的替代方案。</p>
+<h1 id="2-存储文件"><a href="#2-存储文件" class="headerlink" title="2.存储文件"></a>2.存储文件</h1><h2 id="2-1下载媒体文件"><a href="#2-1下载媒体文件" class="headerlink" title="2.1下载媒体文件"></a>2.1下载媒体文件</h2><p>函数urlretrieve()，可以下载文件保存到运行程序的文件夹，第一个参数是地址，第二个参数是要保存的路径和文件名。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urlretrieve(r, filename=str(i) + <span class="string">'.html'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>为安全起见，最好不要随意下载文件。</p>
+<h2 id="2-2数据存储到CSV文件"><a href="#2-2数据存储到CSV文件" class="headerlink" title="2.2数据存储到CSV文件"></a>2.2数据存储到CSV文件</h2><p>与写文件的基本方式相同。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用CSV</span></span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line">csvFile = open(<span class="string">"2_CSV/test.csv"</span>, <span class="string">'w'</span>, newline=<span class="string">''</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    writer = csv.writer(csvFile)</span><br><span class="line">    writer.writerow((<span class="string">'number'</span>, <span class="string">'number plus 2'</span>, <span class="string">'number times 2'</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        writer.writerow((i, i+<span class="number">2</span>, i*<span class="number">2</span>))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    csvFile.close()</span><br></pre></td></tr></table></figure></p>
+<p>注意writerow后面要有两个括号。newline=’’的作用时直接回车不换行。</p>
+<h2 id="2-3整合MySQL"><a href="#2-3整合MySQL" class="headerlink" title="2.3整合MySQL"></a>2.3整合MySQL</h2><p>与Java类似，Python操作MySQL，首先要导入PyMySQL库，再注册驱动，创建连接，执行SQL语句，处理结果集，最后关闭相应的对象。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用MySQL</span></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="comment"># 创建连接对象conn</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">'127.0.0.1'</span>, user=<span class="string">'root'</span>, passwd=<span class="string">'123456'</span>, db=<span class="string">'python'</span>)</span><br><span class="line"><span class="comment"># 创建光标对象cur</span></span><br><span class="line">cur = conn.cursor()</span><br><span class="line">sql = <span class="string">"SELECT URI FROM baike LIMIT 5"</span></span><br><span class="line"><span class="comment"># 执行sql语句</span></span><br><span class="line">cur.execute(sql)</span><br><span class="line"><span class="comment"># 获取结果集</span></span><br><span class="line">rs = cur.fetchall()</span><br><span class="line"><span class="keyword">for</span> (r,) <span class="keyword">in</span> rs:</span><br><span class="line">    print(r)</span><br><span class="line"><span class="comment"># 关闭光标对象</span></span><br><span class="line">cur.close()</span><br><span class="line"><span class="comment"># 关闭连接对象</span></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-1处理结果集"><a href="#2-3-1处理结果集" class="headerlink" title="2.3.1处理结果集"></a>2.3.1处理结果集</h3><p>只有数据库查询语句是会产生结果集的，获取结果集的函数有：<br>    fetchone(): 该方法获取下一个查询结果集。结果集是一个对象<br>    fetchall(): 接收全部的返回结果行.<br>    rowcount: 这是一个只读属性，并返回执行execute()方法后影响的行数。</p>
+<h3 id="2-3-2提交事务"><a href="#2-3-2提交事务" class="headerlink" title="2.3.2提交事务"></a>2.3.2提交事务</h3><p>如果是更新而不是查询，就要提交事务：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn.commit()</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-处理表单"><a href="#3-处理表单" class="headerlink" title="3.处理表单"></a>3.处理表单</h1><h2 id="3-1Request库"><a href="#3-1Request库" class="headerlink" title="3.1Request库"></a>3.1Request库</h2><p>Request库是一个擅长处理复杂HTTP请求、cookie、header、header等内容的第三方库。</p>
+<h2 id="3-2提交表单"><a href="#3-2提交表单" class="headerlink" title="3.2提交表单"></a>3.2提交表单</h2><h3 id="3-2-1简单表单"><a href="#3-2-1简单表单" class="headerlink" title="3.2.1简单表单"></a>3.2.1简单表单</h3><p>如果要模拟提交表单的行为，就要保证变量名与字段名完全一一对应，即使字段被隐藏了。<br>提交post请求需要使用post()函数，第一个参数是请求要提交到的地址，data参数是提交的参数，以字典的形式给出。<br>r.text可以获取响应的内容。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">params = &#123;<span class="string">'firstname'</span>: <span class="string">'shaogang'</span>, <span class="string">'lastname'</span>: <span class="string">'wang'</span>&#125;</span><br><span class="line">r = requests.post(<span class="string">"http://pythonscraping.com/pages/files/processing.php"</span>, data=params)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2-2复杂表单"><a href="#3-2-2复杂表单" class="headerlink" title="3.2.2复杂表单"></a>3.2.2复杂表单</h3><p>对于单选按钮、复选框、下拉选框，无论表单的字段看起来多么复杂，<strong>只需要提交字段和值即可</strong>。<br>有些表单需要提交文件，但对网络数据采集而言，不太实用。</p>
+<h2 id="3-3处理cookie"><a href="#3-3处理cookie" class="headerlink" title="3.3处理cookie"></a>3.3处理cookie</h2><p>现在的网站大多数会用cookie跟踪用户的登录状态信息，如果提交表单后进行访问不回传cookie，那么登录状态就会丢失。<br>登陆后，可以通过r.cookies获取cookie。如果要打印，可以将cookie转为字典形式：r.cookies.get_dict()。<br>在使用post函数时，cooies参数可以同时提交。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提交表单</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'911'</span>, <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">r = requests.post(<span class="string">"http://www.pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line">print(<span class="string">"Cookie is set to: "</span> + str(r.cookies.get_dict()))</span><br><span class="line">print(<span class="string">"------------"</span>)</span><br><span class="line">r = requests.post(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>, cookies=r.cookies)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-4Request对象转为BeautifulSoup对象"><a href="#3-4Request对象转为BeautifulSoup对象" class="headerlink" title="3.4Request对象转为BeautifulSoup对象"></a>3.4Request对象转为BeautifulSoup对象</h2><p>将Request对象r转为BeautifulSoup对象，可以使用下面的方式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bsObj = BeautifulSoup(r.text, <span class="string">"lxml"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>转换以后，就可以用BeautifulSoup来解析网页内容了。</p>
+<h1 id="4-处理JavaScript"><a href="#4-处理JavaScript" class="headerlink" title="4.处理JavaScript"></a>4.处理JavaScript</h1><p>有些页面，如果我们用传统的方法采集，只能获取加载完成前的信息，而我们真正需要的信息，却抓取不到，这就是使用了Ajax技术。</p>
+<h2 id="4-1Selenium库"><a href="#4-1Selenium库" class="headerlink" title="4.1Selenium库"></a>4.1Selenium库</h2><p>用Selenium库可以很简单的使用浏览器来为我们加载动态内容，从而获取采集结果。</p>
+<h3 id="4-1-1下载"><a href="#4-1-1下载" class="headerlink" title="4.1.1下载"></a>4.1.1下载</h3><p>Selenium不仅要下载库，还要下载对应浏览器的驱动，Chrome驱动的下载地址是：<br><a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a><br>下载的exe文件，可以放到任意文件夹。</p>
+<h2 id="4-2Selenium执行JavaScript"><a href="#4-2Selenium执行JavaScript" class="headerlink" title="4.2Selenium执行JavaScript"></a>4.2Selenium执行JavaScript</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Selenium</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">driver = webdriver.Chrome(<span class="string">r'M:\library\chromedriver\chromedriver.exe'</span>)</span><br><span class="line">driver.get(<span class="string">"http://120.79.60.89"</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line">print(driver.find_element_by_tag_name(<span class="string">'div'</span>).text)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，webdriver.Chrome()用来创建Selenium对象，参数是驱动的路径。<br>driver.get()的参数是请求的地址，返回值是Selenium对象，可以用Selenium的选择器选择页面的元素，也可以将Selenium对象转为BeautifulSoup对象进行操作。<br>driver.close()用来将Selenium窗口关闭。</p>
+<h2 id="4-3Selenium选择器"><a href="#4-3Selenium选择器" class="headerlink" title="4.3Selenium选择器"></a>4.3Selenium选择器</h2><p>Selenium对象的常用选择器（名称与JavaScript相似）：</p>
+<pre><code>find_element_by_tag_name(&apos;div&apos;)
+find_element_by_css_selector(&quot;#content&quot;)
+find_elements_by_tag_name(&apos;div&apos;)
+find_elements_by_css_selector(&quot;#content&quot;)
+</code></pre><p>后两个选择器的返回值是列表。</p>
+<h2 id="4-4Selenium对象转为BeautifulSoup对象"><a href="#4-4Selenium对象转为BeautifulSoup对象" class="headerlink" title="4.4Selenium对象转为BeautifulSoup对象"></a>4.4Selenium对象转为BeautifulSoup对象</h2><p>将Selenium对象转为BeautifulSoup对象的作用，就是用强大的BeautifulSoup库来解析网页内容。<br>WebDriver的page_source函数返回页面内容。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pageSource = driver.page_source</span><br><span class="line">bsObj = BeautifulSoup(pageSource)</span><br></pre></td></tr></table></figure></p>
+<h1 id="5-避免错误"><a href="#5-避免错误" class="headerlink" title="5.避免错误"></a>5.避免错误</h1><h2 id="5-1定制请求头"><a href="#5-1定制请求头" class="headerlink" title="5.1定制请求头"></a>5.1定制请求头</h2><p>urllib标准库的请求头会轻易被发现，但我们可以定制请求头。<br>请求头是一个字典，在请求时可以使用headers参数指定请求头。<br>如果没有特殊要求，请求头的内容可以与自己的浏览器一致，请求头中真正重要的参数是User-Agent。</p>
+<h2 id="5-2增加时间间隔"><a href="#5-2增加时间间隔" class="headerlink" title="5.2增加时间间隔"></a>5.2增加时间间隔</h2><p>有些网站会阻止表单迅速提交，或者快速地与网站交互，对此，我们可以设置一定的时间间隔：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.sleep(<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置时间间隔，也是一种节省服务器资源的行为。</p>
+<h2 id="5-3注意隐藏字段"><a href="#5-3注意隐藏字段" class="headerlink" title="5.3注意隐藏字段"></a>5.3注意隐藏字段</h2><p>有些表单会有隐藏的字段，如果不提交就会被发现不是人在访问。<br>还有些表单，显示出来的内容并非提交的内容，爬虫有时候会陷入这样的蜜罐圈套。</p>
+<h2 id="5-4403错误"><a href="#5-4403错误" class="headerlink" title="5.4403错误"></a>5.4403错误</h2><p>IP是唯一不能伪造的信息。<br>出现403错误，说明网站已经把爬虫的IP放到网站黑名单了，不接受任何请求，解决方式是更换IP地址或等待IP地址从黑名单种移除。</p>
+<h2 id="5-5递归"><a href="#5-5递归" class="headerlink" title="5.5递归"></a>5.5递归</h2><p>递归的默认层数限制是1000，超过这个层数会导致递归栈溢出。<br>在可能出现问题的地方，要放置检查语句。</p>
+<h1 id="6-小心驶得万年船"><a href="#6-小心驶得万年船" class="headerlink" title="6.小心驶得万年船"></a>6.小心驶得万年船</h1><p>现在的个人电脑性能都比较强大，如果持续进行数据采集，可能会对网站造成沉重负担。恶意消耗别人网站的服务器资源是一件不道德的事，这种行为甚至会导致严重的法律后果。<br>我认为使用爬虫之前，有必要了解<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/16843044?fromtitle=%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95&amp;fromid=12291792&amp;fr=aladdin" target="_blank" rel="noopener">《网络安全法》</a></p>
+<h2 id="6-1robot-txt"><a href="#6-1robot-txt" class="headerlink" title="6.1robot.txt"></a>6.1robot.txt</h2><p>大型网站通常会有robots.txt文件，例如：<a href="https://www.baidu.com/robots.txt" target="_blank" rel="noopener">https://www.baidu.com/robots.txt</a><br>robot.txt文件会指定允许那些机器人采集哪些内容，robot.txt的语法没有标准格式，也不是强制性约束，是否按要求写爬虫由自己决定，但最好遵守。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/18/Python基础/" rel="next" title="Python基础">
+                <i class="fa fa-chevron-left"></i> Python基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王少刚</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Beautiful-Soup"><span class="nav-number">1.</span> <span class="nav-text">1.Beautiful Soup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1一个简单的示例"><span class="nav-number">1.1.</span> <span class="nav-text">1.1一个简单的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2函数find-和findAll"><span class="nav-number">1.2.</span> <span class="nav-text">1.2函数find()和findAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3指定查找的标签属性"><span class="nav-number">1.3.</span> <span class="nav-text">1.3指定查找的标签属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4去掉标签只保留文本"><span class="nav-number">1.4.</span> <span class="nav-text">1.4去掉标签只保留文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5BeautifulSoup对象"><span class="nav-number">1.5.</span> <span class="nav-text">1.5BeautifulSoup对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6其他对象（不常用）"><span class="nav-number">1.6.</span> <span class="nav-text">1.6其他对象（不常用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7处理相关标签"><span class="nav-number">1.7.</span> <span class="nav-text">1.7处理相关标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-1子标签和其他后代标签"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.7.1子标签和其他后代标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-2兄弟标签"><span class="nav-number">1.7.2.</span> <span class="nav-text">1.7.2兄弟标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-3父标签（不常用）"><span class="nav-number">1.7.3.</span> <span class="nav-text">1.7.3父标签（不常用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8获取属性"><span class="nav-number">1.8.</span> <span class="nav-text">1.8获取属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9正则匹配"><span class="nav-number">1.9.</span> <span class="nav-text">1.9正则匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-1用正则替换字符（数据清洗）"><span class="nav-number">1.9.1.</span> <span class="nav-text">1.9.1用正则替换字符（数据清洗）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10Lambda表达式"><span class="nav-number">1.10.</span> <span class="nav-text">1.10Lambda表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-存储文件"><span class="nav-number">2.</span> <span class="nav-text">2.存储文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1下载媒体文件"><span class="nav-number">2.1.</span> <span class="nav-text">2.1下载媒体文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2数据存储到CSV文件"><span class="nav-number">2.2.</span> <span class="nav-text">2.2数据存储到CSV文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3整合MySQL"><span class="nav-number">2.3.</span> <span class="nav-text">2.3整合MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1处理结果集"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1处理结果集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2提交事务"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2提交事务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-处理表单"><span class="nav-number">3.</span> <span class="nav-text">3.处理表单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1Request库"><span class="nav-number">3.1.</span> <span class="nav-text">3.1Request库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2提交表单"><span class="nav-number">3.2.</span> <span class="nav-text">3.2提交表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1简单表单"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1简单表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2复杂表单"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2复杂表单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3处理cookie"><span class="nav-number">3.3.</span> <span class="nav-text">3.3处理cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4Request对象转为BeautifulSoup对象"><span class="nav-number">3.4.</span> <span class="nav-text">3.4Request对象转为BeautifulSoup对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-处理JavaScript"><span class="nav-number">4.</span> <span class="nav-text">4.处理JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1Selenium库"><span class="nav-number">4.1.</span> <span class="nav-text">4.1Selenium库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1下载"><span class="nav-number">4.1.1.</span> <span class="nav-text">4.1.1下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2Selenium执行JavaScript"><span class="nav-number">4.2.</span> <span class="nav-text">4.2Selenium执行JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3Selenium选择器"><span class="nav-number">4.3.</span> <span class="nav-text">4.3Selenium选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4Selenium对象转为BeautifulSoup对象"><span class="nav-number">4.4.</span> <span class="nav-text">4.4Selenium对象转为BeautifulSoup对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-避免错误"><span class="nav-number">5.</span> <span class="nav-text">5.避免错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1定制请求头"><span class="nav-number">5.1.</span> <span class="nav-text">5.1定制请求头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2增加时间间隔"><span class="nav-number">5.2.</span> <span class="nav-text">5.2增加时间间隔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3注意隐藏字段"><span class="nav-number">5.3.</span> <span class="nav-text">5.3注意隐藏字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4403错误"><span class="nav-number">5.4.</span> <span class="nav-text">5.4403错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5递归"><span class="nav-number">5.5.</span> <span class="nav-text">5.5递归</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-小心驶得万年船"><span class="nav-number">6.</span> <span class="nav-text">6.小心驶得万年船</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1robot-txt"><span class="nav-number">6.1.</span> <span class="nav-text">6.1robot.txt</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王少刚</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
