@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,数据可视化," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.生成数据Numpy是Python的一个科学计算的库，在学习数据可视化时，我们可以用Numpy库来生成数据。1numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None) 上面的方法可以在指定的间隔内返回均匀间隔的数字。1numpy.random.normal(loc=0.0, scale=1.0, s">
+<meta name="keywords" content="Python,数据可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据可视化">
+<meta property="og:url" content="http://yoursite.com/2018/09/27/Python数据可视化/index.html">
+<meta property="og:site_name" content="WSG&#39;s Blog">
+<meta property="og:description" content="1.生成数据Numpy是Python的一个科学计算的库，在学习数据可视化时，我们可以用Numpy库来生成数据。1numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None) 上面的方法可以在指定的间隔内返回均匀间隔的数字。1numpy.random.normal(loc=0.0, scale=1.0, s">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-27T13:06:55.430Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python数据可视化">
+<meta name="twitter:description" content="1.生成数据Numpy是Python的一个科学计算的库，在学习数据可视化时，我们可以用Numpy库来生成数据。1numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None) 上面的方法可以在指定的间隔内返回均匀间隔的数字。1numpy.random.normal(loc=0.0, scale=1.0, s">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/27/Python数据可视化/"/>
+
+
+
+
+
+  <title>Python数据可视化 | WSG's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WSG's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/Python数据可视化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王少刚">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WSG's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python数据可视化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-27T21:00:00+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1.生成数据"></a>1.生成数据</h1><p>Numpy是Python的一个科学计算的库，在学习数据可视化时，我们可以用Numpy库来生成数据。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, retstep=<span class="keyword">False</span>, dtype=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
+<p>上面的方法可以在指定的间隔内返回均匀间隔的数字。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.random.normal(loc=<span class="number">0.0</span>, scale=<span class="number">1.0</span>, size=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
+<p>上面的方法用于生成正态分布的一组数据，参数为均值、标准差、数量。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.random.randn()</span><br></pre></td></tr></table></figure></p>
+<p>上面的方法用于生成一组标准正态分布数据，参数为数量。</p>
+<h1 id="2-导入数据"><a href="#2-导入数据" class="headerlink" title="2.导入数据"></a>2.导入数据</h1><h2 id="2-1-导入标准CSV"><a href="#2-1-导入标准CSV" class="headerlink" title="2.1.导入标准CSV"></a>2.1.导入标准CSV</h2><p>CSV是以逗号分隔的值，其中还包含一个文件头，也是以逗号分隔的。<br>Python中可以用csv模块来读取CSV文件，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line">filename = <span class="string">"ch02-data.csv"</span></span><br><span class="line">data = []</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">        reader = csv.reader(f)</span><br><span class="line">        header = next(reader)</span><br><span class="line">        data = [row <span class="keyword">for</span> row <span class="keyword">in</span> reader]</span><br><span class="line">        print(data)</span><br><span class="line"><span class="keyword">except</span> csv.Error <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">"Error reading CSV file at line %s: %s"</span> %(reader.line_num, e))</span><br><span class="line">    exit(<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> header:</span><br><span class="line">    print(header)</span><br><span class="line">    print(<span class="string">"================="</span>)</span><br><span class="line"><span class="keyword">for</span> datarow <span class="keyword">in</span> data:</span><br><span class="line">    print(datarow)</span><br></pre></td></tr></table></figure></p>
+<p>除标准CSV文件外，还有一些方言CSV文件，也能用csv模块的读取，略。</p>
+<h2 id="2-2-导入Excel"><a href="#2-2-导入Excel" class="headerlink" title="2.2.导入Excel"></a>2.2.导入Excel</h2><p>使用xlrd模块，可以进行Excel文件的读写操作，我们不必为了操作Excel文件而下载Microsoft Excel。<br>读取Excel文件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"></span><br><span class="line">filename = <span class="string">'ch02-xlsxdata.xlsx'</span></span><br><span class="line">wb = xlrd.open_workbook(filename=filename)</span><br><span class="line">ws = wb.sheet_by_name(<span class="string">'Sheet1'</span>)</span><br><span class="line">dataset = []</span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> range(ws.nrows):</span><br><span class="line">    col = []</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> range(ws.ncols):</span><br><span class="line">        col.append(ws.cell(r, c).value)</span><br><span class="line">    dataset.append(col)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> dataset:</span><br><span class="line">    print(line)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-3-导入Json"><a href="#2-3-导入Json" class="headerlink" title="2.3.导入Json"></a>2.3.导入Json</h2><p>Json是一种无关平台的格式，被广泛应用于数据交换。<br>Json格式在Python中对应的是字典和列表，因此处理JSON文件可以先打开文件用字典获取或列表，再用遍历的方式获取需要可视化的列表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://github.com/timeline.json'</span></span><br><span class="line">r = requests.get(url)</span><br><span class="line">json_obj = r.json()</span><br><span class="line"><span class="comment"># print(json_obj)</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> json_obj.items():</span><br><span class="line">    print(key, <span class="string">':'</span>, value)</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的是，JSON中的数据一般是字符串类型，字符串在绘图的时候不能自动比较大小，所以要先转换成数字或日期等类型。</p>
+<h2 id="2-4-从MySQL导入"><a href="#2-4-从MySQL导入" class="headerlink" title="2.4.从MySQL导入"></a>2.4.从MySQL导入</h2><p><a href="https://www.wangshaogang.com/2018/09/26/Python%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/#more" target="_blank" rel="noopener">参考我的上一篇博客。</a></p>
+<h1 id="3-导出数据"><a href="#3-导出数据" class="headerlink" title="3.导出数据"></a>3.导出数据</h1><h2 id="3-1-导出到Json"><a href="#3-1-导出到Json" class="headerlink" title="3.1.导出到Json"></a>3.1.导出到Json</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读csv</span></span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;&#125;</span><br><span class="line">filename = <span class="string">'ch02-data.csv'</span></span><br><span class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">    reader = csv.reader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        data[row[<span class="number">0</span>]] = row[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写json</span></span><br><span class="line">filename2 = <span class="string">'fileFor05.json'</span></span><br><span class="line"><span class="keyword">with</span> open(filename2, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">    json.dump(data, f_obj)</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-导出到CSV"><a href="#3-2-导出到CSV" class="headerlink" title="3.2.导出到CSV"></a>3.2.导出到CSV</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读json</span></span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;&#125;</span><br><span class="line">filename = <span class="string">'fileFor05.json'</span></span><br><span class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">    data = json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写CSV方式1</span></span><br><span class="line">filename2 = <span class="string">'fileFor06.csv'</span></span><br><span class="line"><span class="keyword">with</span> open(filename2, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> data.items():</span><br><span class="line">        line = key + <span class="string">','</span> + value + <span class="string">'\n'</span></span><br><span class="line">        f.write(line)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写CSV方式2</span></span><br><span class="line">filename3 = <span class="string">'fileFor06_2.csv'</span></span><br><span class="line">csvFile = open(filename3, <span class="string">'w'</span>, newline=<span class="string">''</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    writer = csv.writer(csvFile)</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> data.items():</span><br><span class="line">        writer.writerow((key, value))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    csvFile.close()</span><br></pre></td></tr></table></figure>
+<h1 id="4-基本图"><a href="#4-基本图" class="headerlink" title="4.基本图"></a>4.基本图</h1><h2 id="4-1-折线图"><a href="#4-1-折线图" class="headerlink" title="4.1.折线图"></a>4.1.折线图</h2><p>plot(x, y)，第一个参数是横坐标列表，第二个参数是纵坐标列表。</p>
+<h2 id="4-2-垂直柱状体"><a href="#4-2-垂直柱状体" class="headerlink" title="4.2.垂直柱状体"></a>4.2.垂直柱状体</h2><p>bar(x, y)，第一个参数是横坐标列表，第二个参数是纵坐标列表。</p>
+<h2 id="4-3-水平柱状图"><a href="#4-3-水平柱状图" class="headerlink" title="4.3.水平柱状图"></a>4.3.水平柱状图</h2><p>barh(x, y)，第一个参数是纵坐标列表，第二个参数是横坐标列表。</p>
+<h2 id="4-4-堆叠柱状图"><a href="#4-4-堆叠柱状图" class="headerlink" title="4.4.堆叠柱状图"></a>4.4.堆叠柱状图</h2><p>bar(x, y1, bottom=y, color=’r’)，参数是横坐标列表、堆叠的纵坐标列表，可以设置参数bottom指定底部的柱状图，参数color可以指定堆叠柱状图的颜色。</p>
+<h2 id="4-5-箱线图"><a href="#4-5-箱线图" class="headerlink" title="4.5.箱线图"></a>4.5.箱线图</h2><p>boxplot(x, vert=False)，参数是一个列表，vert=False用于指定箱线图横置（更常见）。<br>箱线图可以呈现五种数据：</p>
+<pre><code>最小值：数据集合的最小值
+第二四分位数：其下为集合中较低的25%数据，例如[1, 2, 3, 4]中的1.75
+中值：数据集合的中值，例如[1, 2, 3, 4]中的2.5
+第三四分位数：其下为集合中较低的25%数据，例如[1, 2, 3, 4]中的3.25
+最大值：数据集合的最大值
+</code></pre><h2 id="4-6-散点图"><a href="#4-6-散点图" class="headerlink" title="4.6.散点图"></a>4.6.散点图</h2><p>scatter(x, y)，第一个参数是横坐标列表，第二个参数是纵坐标列表。</p>
+<h1 id="5-定制化"><a href="#5-定制化" class="headerlink" title="5.定制化"></a>5.定制化</h1><h2 id="5-1-标题"><a href="#5-1-标题" class="headerlink" title="5.1.标题"></a>5.1.标题</h2><p>设置标题文字使用方法plt.title()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &amp;&amp;中是斜体</span></span><br><span class="line">plt.title(<span class="string">"Function $sin$ and $cos$"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这个方法还可以设置一些参数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.title(title, color=<span class="string">'brown'</span>, fontsize=<span class="number">18</span>, verticalalignment=<span class="string">'bottom'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数是标题的内容，fontsize指定标题字体大小，verticalalignment用来布置文本，值有’top’, ‘bottom’, ‘center’, ‘baseline’，设置成bottom离图表最远。</p>
+<p>这个方法是有返回值的，返回的是标题对象，可用于对标题的后续操作。</p>
+<p>还有另一种方式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax = plt.gca()</span><br><span class="line">ax.set_title(<span class="string">'This is title'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-2-变量范围和坐标轴刻度"><a href="#5-2-变量范围和坐标轴刻度" class="headerlink" title="5.2.变量范围和坐标轴刻度"></a>5.2.变量范围和坐标轴刻度</h2><p>设置变量值的范围使用plt.xlim()和plt.ylim()，参数是作用端点值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.xlim(-np.pi, np.pi)</span><br><span class="line">plt.ylim(<span class="number">-1.0</span>, <span class="number">1.0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置横纵坐标轴使用plt.xticks()和plt.yticks()，参数是两个列表，第一个列表是原本的值，第二个列表是显示的值。<br>如果变量值范围和坐标轴范围不同，会按较大范围呈现。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># \pi表示希腊字母π</span></span><br><span class="line">plt.xticks([-np.pi, -np.pi/<span class="number">2</span>, <span class="number">0</span>, np.pi/<span class="number">2</span>, np.pi],</span><br><span class="line">           [<span class="string">'$-\pi$'</span>, <span class="string">'$-\pi/2$'</span>, <span class="string">'$0$'</span>, <span class="string">'$\pi/2$'</span>, <span class="string">'$\pi$'</span>])</span><br><span class="line">plt.yticks([<span class="number">-1</span>, <span class="number">-0.5</span>, <span class="number">0</span>, <span class="number">0.5</span>, <span class="number">1</span>], [<span class="string">'$-1$'</span>, <span class="string">'$-0.5$'</span>, <span class="string">'$0$'</span>, <span class="string">'$0.5$'</span>, <span class="string">'$1$'</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-3-坐标轴刻度间隔"><a href="#5-3-坐标轴刻度间隔" class="headerlink" title="5.3.坐标轴刻度间隔"></a>5.3.坐标轴刻度间隔</h2><h3 id="5-3-1-方式一"><a href="#5-3-1-方式一" class="headerlink" title="5.3.1.方式一"></a>5.3.1.方式一</h3><p>使用ax = gca()获取当前坐标轴，再设置将坐标轴平分为几份：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax.locator_params(<span class="string">'x'</span>, nbins = <span class="number">10</span>)</span><br><span class="line">ax.locator_params(<span class="string">'y'</span>, nbins = <span class="number">25</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-3-2-方式二"><a href="#5-3-2-方式二" class="headerlink" title="5.3.2.方式二"></a>5.3.2.方式二</h3><p>使用ax = gca()获取当前坐标轴，再设置坐标轴刻度间隔：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax.xaxis.set_major_locator(matplotlib.ticker.MultipleLocator(<span class="number">6</span>))</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-4-坐标轴标签"><a href="#5-4-坐标轴标签" class="headerlink" title="5.4.坐标轴标签"></a>5.4.坐标轴标签</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax.set_xlabel(<span class="string">'Values'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Frequency'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-5-移动坐标轴"><a href="#5-5-移动坐标轴" class="headerlink" title="5.5.移动坐标轴"></a>5.5.移动坐标轴</h2><p>图表默认有四个轴，如果需要把坐标轴移到中间，需要进行三步：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 隐藏上右两个轴</span></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[<span class="string">'right'</span>].set_color(<span class="string">'none'</span>)</span><br><span class="line">ax.spines[<span class="string">'top'</span>].set_color(<span class="string">'none'</span>)</span><br><span class="line"><span class="comment"># 移动下左两个轴到中间</span></span><br><span class="line">ax.spines[<span class="string">'bottom'</span>].set_position((<span class="string">'data'</span>, <span class="number">0</span>))</span><br><span class="line">ax.spines[<span class="string">'left'</span>].set_position((<span class="string">'data'</span>, <span class="number">0</span>))</span><br><span class="line"><span class="comment"># 指定显示刻度的轴</span></span><br><span class="line">ax.xaxis.set_ticks_position(<span class="string">'bottom'</span>)</span><br><span class="line">ax.yaxis.set_ticks_position(<span class="string">'left'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-6-线的属性"><a href="#5-6-线的属性" class="headerlink" title="5.6.线的属性"></a>5.6.线的属性</h2><h3 id="5-6-1-线条宽度和颜色"><a href="#5-6-1-线条宽度和颜色" class="headerlink" title="5.6.1.线条宽度和颜色"></a>5.6.1.线条宽度和颜色</h3><p>可以对plot()方法指定linewidth和color参数，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, y, linewidth=<span class="number">5</span>, color=<span class="string">'green'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>还有也有一些其他的方式，暂且只掌握这一种吧。<br>关于颜色，除了用单词外，还可以使用十六进制字符串，以及0到1表示RGB的三元组。</p>
+<h3 id="5-6-2-plot-方法的参数"><a href="#5-6-2-plot-方法的参数" class="headerlink" title="5.6.2.plot()方法的参数"></a>5.6.2.plot()方法的参数</h3><p>详见《Python数据裤长我编程实战》P78<br>alpha：透明度，0~1的浮点数<br>color或c    线条颜色，常用颜色可以缩写：</p>
+<pre><code>b：蓝色    g：绿色    r：红色    y：黄色
+c：青色    k：黑色    w：白色    m：洋红色
+</code></pre><p>linestyle或ls：线的风格，有：</p>
+<pre><code>&apos;-&apos;：实线    &apos;--&apos;：破折线
+&apos;-.&apos;：点划线    &apos;:&apos;：虚线
+</code></pre><p>marker：设置线条标志，就是把一些字符画在线条上<br>markeredgecolor或mec：设置标记边的边缘颜色，有标记才有用</p>
+<h2 id="5-7-添加图例"><a href="#5-7-添加图例" class="headerlink" title="5.7.添加图例"></a>5.7.添加图例</h2><p>为每个plot指定了标签，图例才有意义：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x1, label=<span class="string">'plot'</span>)</span><br><span class="line">plt.plot(x2, label=<span class="string">'plot2'</span>)</span><br><span class="line">plt.plot(x3, label=<span class="string">'plot3'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>添加标签后可用下面的代码生成图例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.legend(bbox_to_anchor=(<span class="number">0</span>, <span class="number">-0.15</span>, <span class="number">0.4</span>, <span class="number">0.02</span>), loc=<span class="string">'upper right'</span>, ncol=<span class="number">3</span>, mode=<span class="string">"expand"</span>, borderaxespad=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>plt.legend()方法的参数都是可选的，即使不写也会自动调整。<br>bbox_to_anchor参数指定边框，值为一个四元组，四元组的前两个值为起始点的位置，后两个参数为宽度和高度。大于1或小于0的值表示在图表外面。<br>loc参数指定起始点是哪一个<br>ncol是一行最多显示的列数<br>mode参数课设置为None或expand，当为expand时，图例框会水平扩展至整个坐标轴区域<br>borderaxespad参数指定坐标轴和图例边界之间的间距</p>
+<h2 id="5-8-添加注解"><a href="#5-8-添加注解" class="headerlink" title="5.8.添加注解"></a>5.8.添加注解</h2><p>注解就是指向图中的某个位置的文本。可以用下面的代码生成：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.annotate(<span class="string">"Important value"</span>, (<span class="number">55</span>, <span class="number">20</span>), xycoords=<span class="string">'data'</span>, xytext=(<span class="number">5</span>, <span class="number">38</span>), arrowprops=dict(arrowstyle=<span class="string">'-&gt;'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数是注解的内容，第二个参数是注解指向的位置<br>ycoords=’data’指定注解和数据使用相同的坐标系<br>xytext参数指定注解显示的位置<br>arrowprops参数指定箭头属性</p>
+<h2 id="5-9-填充区域"><a href="#5-9-填充区域" class="headerlink" title="5.9.填充区域"></a>5.9.填充区域</h2><p>核心代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.fill_between(x, y1, y2, facecolor=<span class="string">'yellow'</span>, alpha=<span class="number">1</span>, where=y1&gt;=y2)</span><br><span class="line">plt.fill_between(x, y1, y2, facecolor=<span class="string">'green'</span>, alpha=<span class="number">1</span>, where=y1&lt;=y2)</span><br></pre></td></tr></table></figure></p>
+<p>where指定条件。</p>
+<h2 id="5-10-标题和标签生成阴影"><a href="#5-10-标题和标签生成阴影" class="headerlink" title="5.10.标题和标签生成阴影"></a>5.10.标题和标签生成阴影</h2><p>首先要导入patheffects模块：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> patheffects</span><br></pre></td></tr></table></figure></p>
+<p>标题生成阴影，需要利用plt.title()方法返回的对象<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">title_text_obj = plt.title(title, fontsize=fontsize, verticalalignment=<span class="string">'bottom'</span>)</span><br><span class="line">title_text_obj.set_path_effects([patheffects.withSimplePatchShadow()])</span><br><span class="line">```Python</span><br><span class="line">可以给patheffects.withSimplePatchShadow()方法传参数设置阴影的属性，例如：</span><br><span class="line">```Python</span><br><span class="line">title_text_obj.set_path_effects([patheffects.withSimplePatchShadow(shadow_rgbFace=<span class="string">'red'</span>)])</span><br><span class="line">```Python</span><br><span class="line"></span><br><span class="line">标签生成阴影，与标题是类似的：</span><br><span class="line">```Python</span><br><span class="line">xlabel_obj = plt.xlabel(x_label, fontsize=fontsize, alpha=<span class="number">0.5</span>)</span><br><span class="line">ylabel_obj = plt.ylabel(y_label, fontsize=fontsize, alpha=<span class="number">0.5</span>)</span><br><span class="line">xlabel_obj.set_path_effects([patheffects.withSimplePatchShadow(shadow_rgbFace=<span class="string">'red'</span>)])</span><br><span class="line">ylabel_obj.set_path_effects([patheffects.withSimplePatchShadow(shadow_rgbFace=<span class="string">'red'</span>)])</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-11-添加数据表"><a href="#5-11-添加数据表" class="headerlink" title="5.11.添加数据表"></a>5.11.添加数据表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">col_labels = [<span class="string">'col1'</span>, <span class="string">'col2'</span>, <span class="string">'col3'</span>]</span><br><span class="line">row_labels = [<span class="string">'row1'</span>, <span class="string">'row2'</span>, <span class="string">'row3'</span>]</span><br><span class="line">table_vals = [[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>], [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>], [<span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>]]</span><br><span class="line">row_colors = [<span class="string">'red'</span>, <span class="string">'gold'</span>, <span class="string">'green'</span>]</span><br><span class="line"></span><br><span class="line">my_table = plt.table(cellText=table_vals, colWidths=[<span class="number">0.1</span>]*<span class="number">3</span>, rowLabels=row_labels,</span><br><span class="line">                     colLabels=col_labels, rowColours=row_colors, loc=<span class="string">'upper right'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-12-添加子区"><a href="#5-12-添加子区" class="headerlink" title="5.12.添加子区"></a>5.12.添加子区</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">axes1 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">0</span>, <span class="number">0</span>), colspan=<span class="number">3</span>)</span><br><span class="line">axes2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">axes3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">axes4 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">axes5 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>plt.subplot2grid()方法可以用colspan和rowspan参数来实现跨行和跨列，这一点与HTML5的table类似。</p>
+<h3 id="5-12-1-对子区的操作"><a href="#5-12-1-对子区的操作" class="headerlink" title="5.12.1.对子区的操作"></a>5.12.1.对子区的操作</h3><p>总标题：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plt.subplots_adjust(wspace=<span class="number">1</span>, hspace=<span class="number">1</span>)</span><br><span class="line">```Python</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 5.12.1.1.小标题</span></span><br><span class="line">```Python</span><br><span class="line">axes1.set_title(<span class="string">"This is title1"</span>)</span><br><span class="line">axes2.set_title(<span class="string">"This is title2"</span>)</span><br><span class="line">axes3.set_title(<span class="string">"This is title3"</span>)</span><br><span class="line">axes4.set_title(<span class="string">"This is title4"</span>)</span><br><span class="line">axes5.set_title(<span class="string">"This is title5"</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-12-1-2-设置子区的间隔"><a href="#5-12-1-2-设置子区的间隔" class="headerlink" title="5.12.1.2.设置子区的间隔"></a>5.12.1.2.设置子区的间隔</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.subplots_adjust(wspace=<span class="number">1</span>, hspace=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>这里的1以最小子区的长宽为基准。</p>
+<h4 id="5-12-1-3-同时操作多个子区"><a href="#5-12-1-3-同时操作多个子区" class="headerlink" title="5.12.1.3.同时操作多个子区"></a>5.12.1.3.同时操作多个子区</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">all_axes = plt.gcf().axes</span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> all_axes:</span><br><span class="line">    <span class="keyword">for</span> ticklabel <span class="keyword">in</span> ax.get_xticklabels() + ax.get_yticklabels():</span><br><span class="line">        ticklabel.set_fontsize(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-13-定制化网格"><a href="#5-13-定制化网格" class="headerlink" title="5.13.定制化网格"></a>5.13.定制化网格</h2><p>添加网格只需一行代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.grid(<span class="keyword">True</span>)</span><br><span class="line">```Python</span><br><span class="line">需要定制化，可以给此方法设置一些参数：</span><br><span class="line">```Python</span><br><span class="line">plt.grid(color=<span class="string">'g'</span>, linestyle=<span class="string">'-'</span>, alpha=<span class="number">0.3</span>, linewidth=<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-14-刻度不均匀的坐标轴"><a href="#5-14-刻度不均匀的坐标轴" class="headerlink" title="5.14.刻度不均匀的坐标轴"></a>5.14.刻度不均匀的坐标轴</h2><h3 id="5-14-1-对数标度"><a href="#5-14-1-对数标度" class="headerlink" title="5.14.1.对数标度"></a>5.14.1.对数标度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set_yscale(<span class="string">'log'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="5-14-2-线性标度"><a href="#5-14-2-线性标度" class="headerlink" title="5.14.2.线性标度"></a>5.14.2.线性标度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set_yscale(<span class="string">'Linear'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-15-使用不同颜色的线"><a href="#5-15-使用不同颜色的线" class="headerlink" title="5.15.使用不同颜色的线"></a>5.15.使用不同颜色的线</h2><p>这个其实没有用新方法，而是一种思路，可以创建一个颜色列表，在画线的时候根据索引选择颜色。<br>这个网站可用于获取颜色：<a href="http://colorbrewer2.org" target="_blank" rel="noopener">http://colorbrewer2.org</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">colors = [<span class="string">'#d73027'</span>, <span class="string">'#f46d43'</span>, <span class="string">'#fdae61'</span>, <span class="string">'#fee08b'</span>, <span class="string">'#ffffbf'</span>, <span class="string">'#d9ef8b'</span>, <span class="string">'#a6d96a'</span>, <span class="string">'#66bd63'</span>, <span class="string">'#1a9850'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">9</span>):</span><br><span class="line">	…</span><br><span class="line">	ax.scatter(x, y, label=str(i), linewidths=<span class="number">0.1</span>, edgecolors=<span class="string">'grey'</span>, facecolor=colors[i])</span><br></pre></td></tr></table></figure></p>
+<h1 id="6-高级图"><a href="#6-高级图" class="headerlink" title="6.高级图"></a>6.高级图</h1><h2 id="6-1-直方图"><a href="#6-1-直方图" class="headerlink" title="6.1.直方图"></a>6.1.直方图</h2><p>表示一定间隔下数据点频率的垂直矩形称为bin。<br>下面的代码会生成直方图：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax.(x, bins=<span class="number">100</span>, facecolor=<span class="string">'yellow'</span>, edgecolor=<span class="string">'blue'</span>, normed=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure></p>
+<p>bins参数指定bin的个数，facecolor是填充颜色，edgecolor是边框颜色。<br>normed=True将值进行归一化处理，即总面积为1。<br>除此之外，还可以用range参数指定bins的范围。</p>
+<h2 id="6-2-误差条形图"><a href="#6-2-误差条形图" class="headerlink" title="6.2.误差条形图"></a>6.2.误差条形图</h2><p>生成误差直方图的代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.bar(x, y, yerr=xe, width=<span class="number">0.4</span>, align=<span class="string">'center'</span>, ecolor=<span class="string">'r'</span>, color=<span class="string">'#bbffee'</span>, hatch=<span class="string">'o'</span>, label=<span class="string">'experiment #1'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>yerr参数是纵坐标误差的一组数据（单侧误差）。<br>hatch填充的阴影的样式。有斜线、十字线、圆圈、点、星号等。</p>
+<h2 id="6-3-分裂式饼图"><a href="#6-3-分裂式饼图" class="headerlink" title="6.3.分裂式饼图"></a>6.3.分裂式饼图</h2><p>核心代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pie(x, explode=explode, labels=labels, autopct=<span class="string">'%.2f%%'</span>, startangle=<span class="number">67</span>)</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数是每一个扇形的数值（元组），explode参数是偏移量（元组，相对半径的比例），labels是标签（元组），这三个元组的元素数量要保持一致。<br>autopct=’%.2f%%’用于自动计算百分比，startangle参数指定倾斜角度（x轴正方向逆时针夹角）。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/数据可视化/" rel="tag"># 数据可视化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/Python数据采集/" rel="next" title="Python数据采集">
+                <i class="fa fa-chevron-left"></i> Python数据采集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王少刚</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-生成数据"><span class="nav-number">1.</span> <span class="nav-text">1.生成数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-导入数据"><span class="nav-number">2.</span> <span class="nav-text">2.导入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-导入标准CSV"><span class="nav-number">2.1.</span> <span class="nav-text">2.1.导入标准CSV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-导入Excel"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.导入Excel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-导入Json"><span class="nav-number">2.3.</span> <span class="nav-text">2.3.导入Json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-从MySQL导入"><span class="nav-number">2.4.</span> <span class="nav-text">2.4.从MySQL导入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-导出数据"><span class="nav-number">3.</span> <span class="nav-text">3.导出数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-导出到Json"><span class="nav-number">3.1.</span> <span class="nav-text">3.1.导出到Json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-导出到CSV"><span class="nav-number">3.2.</span> <span class="nav-text">3.2.导出到CSV</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-基本图"><span class="nav-number">4.</span> <span class="nav-text">4.基本图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-折线图"><span class="nav-number">4.1.</span> <span class="nav-text">4.1.折线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-垂直柱状体"><span class="nav-number">4.2.</span> <span class="nav-text">4.2.垂直柱状体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-水平柱状图"><span class="nav-number">4.3.</span> <span class="nav-text">4.3.水平柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-堆叠柱状图"><span class="nav-number">4.4.</span> <span class="nav-text">4.4.堆叠柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-箱线图"><span class="nav-number">4.5.</span> <span class="nav-text">4.5.箱线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-散点图"><span class="nav-number">4.6.</span> <span class="nav-text">4.6.散点图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-定制化"><span class="nav-number">5.</span> <span class="nav-text">5.定制化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-标题"><span class="nav-number">5.1.</span> <span class="nav-text">5.1.标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-变量范围和坐标轴刻度"><span class="nav-number">5.2.</span> <span class="nav-text">5.2.变量范围和坐标轴刻度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-坐标轴刻度间隔"><span class="nav-number">5.3.</span> <span class="nav-text">5.3.坐标轴刻度间隔</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-1-方式一"><span class="nav-number">5.3.1.</span> <span class="nav-text">5.3.1.方式一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-2-方式二"><span class="nav-number">5.3.2.</span> <span class="nav-text">5.3.2.方式二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-坐标轴标签"><span class="nav-number">5.4.</span> <span class="nav-text">5.4.坐标轴标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-移动坐标轴"><span class="nav-number">5.5.</span> <span class="nav-text">5.5.移动坐标轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-线的属性"><span class="nav-number">5.6.</span> <span class="nav-text">5.6.线的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-1-线条宽度和颜色"><span class="nav-number">5.6.1.</span> <span class="nav-text">5.6.1.线条宽度和颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-2-plot-方法的参数"><span class="nav-number">5.6.2.</span> <span class="nav-text">5.6.2.plot()方法的参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-添加图例"><span class="nav-number">5.7.</span> <span class="nav-text">5.7.添加图例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-添加注解"><span class="nav-number">5.8.</span> <span class="nav-text">5.8.添加注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-9-填充区域"><span class="nav-number">5.9.</span> <span class="nav-text">5.9.填充区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-10-标题和标签生成阴影"><span class="nav-number">5.10.</span> <span class="nav-text">5.10.标题和标签生成阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-11-添加数据表"><span class="nav-number">5.11.</span> <span class="nav-text">5.11.添加数据表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-12-添加子区"><span class="nav-number">5.12.</span> <span class="nav-text">5.12.添加子区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-12-1-对子区的操作"><span class="nav-number">5.12.1.</span> <span class="nav-text">5.12.1.对子区的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-12-1-2-设置子区的间隔"><span class="nav-number">5.12.1.1.</span> <span class="nav-text">5.12.1.2.设置子区的间隔</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-12-1-3-同时操作多个子区"><span class="nav-number">5.12.1.2.</span> <span class="nav-text">5.12.1.3.同时操作多个子区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-13-定制化网格"><span class="nav-number">5.13.</span> <span class="nav-text">5.13.定制化网格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-14-刻度不均匀的坐标轴"><span class="nav-number">5.14.</span> <span class="nav-text">5.14.刻度不均匀的坐标轴</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-14-1-对数标度"><span class="nav-number">5.14.1.</span> <span class="nav-text">5.14.1.对数标度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-14-2-线性标度"><span class="nav-number">5.14.2.</span> <span class="nav-text">5.14.2.线性标度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-15-使用不同颜色的线"><span class="nav-number">5.15.</span> <span class="nav-text">5.15.使用不同颜色的线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-高级图"><span class="nav-number">6.</span> <span class="nav-text">6.高级图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-直方图"><span class="nav-number">6.1.</span> <span class="nav-text">6.1.直方图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-误差条形图"><span class="nav-number">6.2.</span> <span class="nav-text">6.2.误差条形图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-分裂式饼图"><span class="nav-number">6.3.</span> <span class="nav-text">6.3.分裂式饼图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王少刚</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
