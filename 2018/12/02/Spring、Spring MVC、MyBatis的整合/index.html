@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/VufN0CIRMcMDcsFrDIhzGfXEKDkW6Vi4QWitPrrttPM!/r/dLYAAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/gGLb5EHGA0l4Fv3Oxec8BI0EN6g5*HmzAsivKaXxmpE!/r/dFUAAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/qekGMEiO9COsC7WGZrpKHpUKs5U6IdcAiwqjiPUA6M4!/r/dDEBAAAAAAAA">
-<meta property="og:updated_time" content="2018-12-02T11:05:54.787Z">
+<meta property="og:updated_time" content="2018-12-02T11:15:14.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring、Spring MVC、MyBatis的整合">
 <meta name="twitter:description" content="SSM是当前web开发最流行的三大框架，这篇博客用一个简单的Demo演示三大框架的整合。 环境：1.Jdk 72.Spring 4.0.23.MyBatis 3.2.64.Tomcat 7.0.525.Idea 2018.2">
@@ -305,7 +305,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  4,190 字
+                  4,209 字
                 </span>
               
 
@@ -377,12 +377,12 @@
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>这里记录了一些我在学习SSM过程中遇到的问题。</p>
 <h2 id="更改项目名后web目录识别错误"><a href="#更改项目名后web目录识别错误" class="headerlink" title="更改项目名后web目录识别错误"></a>更改项目名后web目录识别错误</h2><p>在IDEA的Project Structure中，可以通过选项Facets指定web文件夹的路径。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/um3y0TxNhj1zc5wSXGP8RaSb9ajQatZASItaLslBAg8!/r/dFQBAAAAAAAA" alt="在这里插入图片描述"><br>如果项目是从eclipse导入的，无法识别web文件夹，也可以用此方法解决。</p>
 <h2 id="jar包无法发布到tomcat"><a href="#jar包无法发布到tomcat" class="headerlink" title="jar包无法发布到tomcat"></a>jar包无法发布到tomcat</h2><p>在Maven中导入了jar包，但是用tomcat运行时出现ClassNotFoundException，很可能是因为jar没有发布到tomcat中。查看out/arctfacts/[项目名]/WEB-INF下是否有lib目录，如果没有，就说明确实存在这个问题。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/sAoWhE*VIEUyRxOArUIECau2.WTNMX8*dgHMy4*FqM0!/r/dD4BAAAAAAAA" alt="在这里插入图片描述"><br>解决方式是进入Project Structure的Artifacts选项，点击当前Module的Artifacts，再展开右边的当前Module，选择所有的jar包，点击右键菜单中的Put into Output Root。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/yDjRhmC7*OmBzu6Fks6Lh53EKChREJ2hqDqQfDRtCjs!/r/dDcBAAAAAAAA" alt="在这里插入图片描述"><br>然后从out目录下删除这个Module的artifacts，重新Buile Artifacts。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/VufN0CIRMcMDcsFrDIhzGfXEKDkW6Vi4QWitPrrttPM!/r/dLYAAAAAAAAA" alt="在这里插入图片描述"></p>
-<p>参考<a href="https://blog.csdn.net/qq_26525215/article/details/54313537" target="_blank" rel="noopener">https://blog.csdn.net/qq_26525215/article/details/54313537</a></p>
+<p>参考：<a href="https://blog.csdn.net/qq_26525215/article/details/54313537" target="_blank" rel="noopener">【问题解决】IDEA-Maven下Tomcat发布Web项目，遇到Jar包无法找到</a></p>
 <h2 id="无法识别Resources"><a href="#无法识别Resources" class="headerlink" title="无法识别Resources"></a>无法识别Resources</h2><p>有时候创建的Maven项目目录不正确，需要我们来手动标记目录。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/gGLb5EHGA0l4Fv3Oxec8BI0EN6g5*HmzAsivKaXxmpE!/r/dFUAAAAAAAAA" alt="在这里插入图片描述"><br>如果不进行这个操作，可能会出现无法读取配置文件的问题。</p>
 <h2 id="重复使用逆向工程"><a href="#重复使用逆向工程" class="headerlink" title="重复使用逆向工程"></a>重复使用逆向工程</h2><p>MyBatis逆向工程只能使用一次，如果不小心重复使用了，就要把生成的文件全部删除重来一遍。</p>
-<h2 id="自定义pojo构造方法"><a href="#自定义pojo构造方法" class="headerlink" title="自定义pojo构造方法"></a>自定义pojo构造方法</h2><p>MyBatis逆向工程生成的pojo是没有构造方法的，如果我们手动编写了pojo的<strong>有参</strong>构造方法，默认的空参构造方法就会被覆盖。如果没有空参构造方法，使用逆向工程生成的Mapper执行查询语句就会报错。所以如果需要为pojo添加自定义有参构造方法，就要再添加一个空参构造方法。<br>参考：<a href="https://blog.csdn.net/eatGood_wearWell/article/details/78549210" target="_blank" rel="noopener">https://blog.csdn.net/eatGood_wearWell/article/details/78549210</a></p>
+<h2 id="自定义pojo构造方法"><a href="#自定义pojo构造方法" class="headerlink" title="自定义pojo构造方法"></a>自定义pojo构造方法</h2><p>MyBatis逆向工程生成的pojo是没有构造方法的，如果我们手动编写了pojo的<strong>有参</strong>构造方法，默认的空参构造方法就会被覆盖。如果没有空参构造方法，使用逆向工程生成的Mapper执行查询语句就会报错。所以如果需要为pojo添加自定义有参构造方法，就要再添加一个空参构造方法。<br>参考：<a href="https://blog.csdn.net/eatGood_wearWell/article/details/78549210" target="_blank" rel="noopener">Mybatis 报错:java.lang.NoSuchMethodException: java.lang.Long.()</a></p>
 <h2 id="更改包名"><a href="#更改包名" class="headerlink" title="更改包名"></a>更改包名</h2><p>如果对pojo、dao包的父包名进行了rename，与包名相关的Java代码会自动修改，但Mapper中不会修改，如果一定要修改包名，建议重新使用逆向工程。</p>
-<h2 id="jsp导入jstl约束"><a href="#jsp导入jstl约束" class="headerlink" title="jsp导入jstl约束"></a>jsp导入jstl约束</h2><p>大多数配置文件的约束，IDEA都能很智能地帮我们自动导入，但jsp中要使用jstl，约束就不能自动导入，需要手动下载和导入约束文件，可以在设置中搜索DTDs。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/qekGMEiO9COsC7WGZrpKHpUKs5U6IdcAiwqjiPUA6M4!/r/dDEBAAAAAAAA" alt="在这里插入图片描述"><br>参考：<a href="https://my.oschina.net/fdblog/blog/180602" target="_blank" rel="noopener">https://my.oschina.net/fdblog/blog/180602</a></p>
+<h2 id="jsp导入jstl约束"><a href="#jsp导入jstl约束" class="headerlink" title="jsp导入jstl约束"></a>jsp导入jstl约束</h2><p>大多数配置文件的约束，IDEA都能很智能地帮我们自动导入，但jsp中要使用jstl，约束就不能自动导入，需要手动下载和导入约束文件，可以在设置中搜索DTDs。<br><img src="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/qekGMEiO9COsC7WGZrpKHpUKs5U6IdcAiwqjiPUA6M4!/r/dDEBAAAAAAAA" alt="在这里插入图片描述"><br>参考：<a href="https://my.oschina.net/fdblog/blog/180602" target="_blank" rel="noopener">IntelliJ IDEA 使用JSTL标签库(IDEA 加载 tld文件)</a></p>
 
       
     </div>
