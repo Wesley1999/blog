@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/DF6MjvmhdSX6SisMY7eyZZ0NLI.OGIuxbiNcX8tYxts!/r/dFIBAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/VKZIWL29opw6OiydLhbrHEK1SyODF8WYw7qZZ7d2Oi8!/r/dLgAAAAAAAAA">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V14QRBVQ17tOYz/xHGXwVPIC19mApz1bwarCdi9lYs8RaPYVFT94iW6zoQ!/r/dDIBAAAAAAAA">
-<meta property="og:updated_time" content="2018-12-22T04:30:11.457Z">
+<meta property="og:updated_time" content="2018-12-22T07:59:19.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离的简单实现">
 <meta name="twitter:description" content="前后端分离有更好的性能，更高的开发效率，更强的可维护性，随着时代的发展，前后端之间的界限越来越明确。">
@@ -298,7 +298,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3,064 字
+                  3,066 字
                 </span>
               
 
@@ -336,7 +336,7 @@
 
       
         <p>前后端分离有更好的性能，更高的开发效率，更强的可维护性，随着时代的发展，前后端之间的界限越来越明确。<br><a id="more"></a></p>
-<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>以前后端的方式，实现简单的注册、登录、注销、显示欢迎信息功能。</p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>以前后端分离的方式，实现简单的注册、登录、注销、显示欢迎信息功能。</p>
 <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>JDK 1.8.0_191<br>Maven 3.0.5<br>Tomcat 7.0.52<br>Nginx 1.10.2<br>MySQL 5.5.49<br>IDEA ULTIMATE 2018.2<br>版本方面，只要Tomcat能在当前当前JDK环境下运行，基本上就没什么问题了。</p>
 <h1 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h1><p>打开nginx\conf\nginx.conf，去掉注释后，可以看到如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        </span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这里面，server中的listen表示nginx服务器监听的端口。<br>server_name表示要转发到那里去，监听到之后转发到那里去，默认是转发到本地，也就是nginx文件夹内。<br>location表示匹配的路径，/表示所有的请求都要匹配到这里。<br>root表示匹配到以后，将在这个文件夹内寻找相应的文件。<br>index指定默认主页。</p>
